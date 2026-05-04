@@ -1,7 +1,126 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-primary-fixed-dim: #2addcd;
+  --color-tertiary: #7825ea;
+  --color-outline: #6b7a77;
+  --color-on-tertiary-fixed-variant: #5d00c2;
+  --color-on-tertiary-container: #6200cb;
+  --color-primary: #006a62;
+  --color-secondary-fixed-dim: #ffb68b;
+  --color-inverse-on-surface: #ebf2f0;
+  --color-error: #ba1a1a;
+  --color-on-primary-fixed-variant: #005049;
+  --color-on-primary-container: #00544d;
+  --color-on-primary: #ffffff;
+  --color-surface-container-low: #eef5f3;
+  --color-on-tertiary-fixed: #270058;
+  --color-surface-container-highest: #dce4e2;
+  --color-surface-dim: #d4dcd9;
+  --color-inverse-primary: #2addcd;
+  --color-background: #f3fbf8;
+  --color-on-secondary-fixed: #321200;
+  --color-secondary-fixed: #ffdbc8;
+  --color-on-secondary: #ffffff;
+  --color-tertiary-fixed: #ebdcff;
+  --color-error-container: #ffdad6;
+  --color-inverse-surface: #2a3230;
+  --color-on-primary-fixed: #00201d;
+  --color-tertiary-fixed-dim: #d4bbff;
+  --color-surface-bright: #f3fbf8;
+  --color-on-secondary-container: #592600;
+  --color-on-background: #161d1c;
+  --color-surface-container-high: #e2eae7;
+  --color-on-error-container: #93000a;
+  --color-secondary: #994700;
+  --color-on-secondary-fixed-variant: #753400;
+  --color-outline-variant: #bacac6;
+  --color-on-surface: #161d1c;
+  --color-on-tertiary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-secondary-container: #fb7800;
+  --color-primary-fixed: #57fae9;
+  --color-tertiary-container: #cbacff;
+  --color-surface-container: #e8f0ed;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #dce4e2;
+  --color-primary-container: #00d1c1;
+  --color-surface-tint: #006a62;
+  --color-surface: #f3fbf8;
+  --color-on-surface-variant: #3b4a47;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --spacing-md: 24px;
+  --spacing-base: 8px;
+  --spacing-xl: 80px;
+  --spacing-xs: 4px;
+  --spacing-gutter: 32px;
+  --spacing-sm: 12px;
+  --spacing-lg: 48px;
+  --spacing-container-max: 1280px;
+
+  --font-label-bold: "Plus Jakarta Sans", sans-serif;
+  --font-headline-lg: "Space Grotesk", sans-serif;
+  --font-display-xl: "Space Grotesk", sans-serif;
+  --font-body-lg: "Plus Jakarta Sans", sans-serif;
+  --font-button: "Plus Jakarta Sans", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-body-md: "Plus Jakarta Sans", sans-serif;
+}
+
+@utility text-label-bold {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+@utility text-headline-lg {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+@utility text-display-xl {
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility text-button {
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+@utility text-headline-md {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(40px);
+    box-shadow: 0 8px 32px 0 rgba(0, 209, 193, 0.1);
+  }
+}
+
 :root {
-  font-family: 'Trebuchet MS', 'Gill Sans', 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,12 +137,4 @@ html {
 
 body {
   margin: 0;
-}
-
-.font-body {
-  font-family: 'Trebuchet MS', 'Gill Sans', 'Segoe UI', sans-serif;
-}
-
-.font-display {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Trebuchet MS', sans-serif;
 }

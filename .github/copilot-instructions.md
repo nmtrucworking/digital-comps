@@ -7,6 +7,7 @@ This is a static website project built with:
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Development**: Fast refresh with HMR
+- **Testing**: Vitest (unit/component testing)
 
 ## Setup Checklist
 

@@ -1,7 +1,25 @@
-import HomePage from './pages/HomePage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Team from './pages/Team';
+import Opportunities from './pages/Opportunities';
+import Blog from './pages/Blog';
+import Library from './pages/Library';
 
 function App() {
-  return <HomePage />
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="team" element={<Team />} />
+          <Route path="opportunities" element={<Opportunities />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="library" element={<Library />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
