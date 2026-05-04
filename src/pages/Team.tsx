@@ -70,7 +70,7 @@ export default function Team() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Method 1 */}
-          <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-primary-container/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
+          <div className="h-full flex flex-col bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-primary-container/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center border-4 border-surface shadow-sm">
               <BarChart className="w-8 h-8 text-secondary-container" />
             </div>
@@ -80,7 +80,7 @@ export default function Team() {
             </p>
           </div>
           {/* Method 2 */}
-          <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-tertiary/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
+          <div className="h-full flex flex-col bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-tertiary/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center border-4 border-surface shadow-sm">
               <Users className="w-8 h-8 text-tertiary" />
             </div>
@@ -90,7 +90,7 @@ export default function Team() {
             </p>
           </div>
           {/* Method 3 */}
-          <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-primary/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
+          <div className="h-full flex flex-col bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-primary/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center border-4 border-surface shadow-sm">
               <Globe className="w-8 h-8 text-primary" />
             </div>

@@ -47,9 +47,9 @@ export default function Blog() {
           </div>
           <h2 className="font-headline-lg text-headline-lg text-on-background">Câu chuyện nổi bật</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-auto md:auto-rows-[300px]">
           {/* Large Feature Card */}
-          <div className="col-span-1 md:col-span-8 row-span-2 relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
+          <div className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
             <img 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBol_F-vDsMVj43OmIR72PIyZHYhFs9gfiza0pNn8fE1dBnIzBivS0SWKgNUopj06LJ_2Z84J3_migenfDZ2JDkyhLuuhP4nG_B4a6cHpsPuWT3Ycsup7nlJDZXW0sBwHFt3I1EJk8drgdhzH-ESVGVIhnG6uJKYoPZCL6q95Vw-QgXvP5UmGawgyhySXdonhwp567_4_JKikY4qctbnR33ANNZtmQbr8csbLivR-iR9prtWXwhzkrHSn9si57z7OumL_vOwAKfiw" 
@@ -81,7 +81,7 @@ export default function Blog() {
           </div>
 
           {/* Small Feature Card 1 */}
-          <div className="col-span-1 md:col-span-4 row-span-1 relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:bg-surface-container transition-colors">
+          <div className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:bg-surface-container transition-colors">
             <div className="absolute top-md right-md">
               <Lightbulb className="w-8 h-8 text-tertiary-container fill-current" />
             </div>
@@ -96,7 +96,7 @@ export default function Blog() {
           </div>
 
           {/* Small Feature Card 2 */}
-          <div className="col-span-1 md:col-span-4 row-span-1 relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-gradient-to-br from-surface to-surface-container-high border border-outline-variant/30 flex flex-col justify-end p-md hover:border-primary-container/50 transition-colors">
+          <div className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-gradient-to-br from-surface to-surface-container-high border border-outline-variant/30 flex flex-col justify-end p-md hover:border-primary-container/50 transition-colors">
             <div className="absolute -right-4 -bottom-4 opacity-10">
               <Scale className="w-32 h-32 fill-current" />
             </div>
@@ -126,7 +126,7 @@ export default function Blog() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {/* Post Card 1 */}
-          <article className="bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
+          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
             <div className="h-48 overflow-hidden relative">
               <img 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
@@ -151,7 +151,7 @@ export default function Blog() {
           </article>
           
           {/* Post Card 2 */}
-          <article className="bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
+          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
             <div className="h-48 overflow-hidden relative">
               <img 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
@@ -176,7 +176,7 @@ export default function Blog() {
           </article>
 
           {/* Post Card 3 */}
-          <article className="bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
+          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
             <div className="h-48 overflow-hidden relative bg-surface-container flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-br from-tertiary-container/30 to-surface opacity-50"></div>
               <Brain className="w-16 h-16 text-tertiary relative z-10" />

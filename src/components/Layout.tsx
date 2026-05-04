@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { MessageCircle, Globe, Share2 } from 'lucide-react';
+import { MessageCircle, Globe, Share2, Menu, X } from 'lucide-react';
 
 export default function Layout() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const getLinkClass = (path: string) => {
     const isActive = location.pathname === path;
@@ -12,14 +14,22 @@ export default function Layout() {
     return "text-slate-600 dark:text-slate-300 hover:text-[#00D1C1] transition-colors hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all font-['Space_Grotesk'] font-medium";
   };
 
+  const getMobileLinkClass = (path: string) => {
+    const isActive = location.pathname === path;
+    return `block px-4 py-3 rounded-xl transition-all font-['Space_Grotesk'] font-medium text-lg ${
+      isActive ? 'bg-[#00D1C1]/10 text-[#00D1C1] font-bold' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+    }`;
+  };
+
   return (
     <div className="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
       {/* TopNavBar */}
       <nav className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_8px_32px_0_rgba(0,209,193,0.1)] border-b border-white/10 dark:border-slate-800/50">
-        <div className="flex justify-between items-center w-full px-8 md:px-20 py-4 max-w-[1440px] mx-auto">
+        <div className="flex justify-between items-center w-full px-6 md:px-20 py-4 max-w-[1440px] mx-auto">
           <Link to="/" className="text-2xl font-black tracking-tighter text-[#00D1C1] font-['Space_Grotesk'] font-medium">
             Công dân số
           </Link>
+          
           <div className="hidden md:flex gap-8 items-center">
             <Link className={getLinkClass('/')} to="/">Trang chủ</Link>
             <Link className={getLinkClass('/team')} to="/team">Về dự án</Link>
@@ -27,17 +37,41 @@ export default function Layout() {
             <Link className={getLinkClass('/library')} to="/library">Thư viện</Link>
             <Link className={getLinkClass('/blog')} to="/blog">Blog</Link>
           </div>
-          <div className="flex items-center gap-4">
+          
+          <div className="hidden md:flex items-center gap-4">
             <button className="bg-gradient-to-r from-tertiary to-primary-container text-on-primary font-button text-button px-6 py-3 rounded-full shadow-[0_4px_14px_0_rgba(0,209,193,0.39)] hover:shadow-[0_6px_20px_rgba(0,209,193,0.23)] transition-all">
               Tham gia
             </button>
           </div>
+
+          <button 
+            className="md:hidden p-2 text-slate-600 dark:text-slate-300"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-lg py-4 px-6 flex flex-col gap-2">
+            <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/')} to="/">Trang chủ</Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/team')} to="/team">Về dự án</Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/opportunities')} to="/opportunities">Cơ hội & Thách thức</Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/library')} to="/library">Thư viện</Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/blog')} to="/blog">Blog</Link>
+            <button className="mt-4 w-full bg-gradient-to-r from-tertiary to-primary-container text-on-primary font-button text-button px-6 py-3 rounded-xl shadow-md transition-all">
+              Tham gia ngay
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col">
-        <Outlet />
+        <div key={location.pathname} className="animate-fade-in flex-grow flex flex-col">
+          <Outlet />
+        </div>
       </main>
 
       {/* Footer */}
