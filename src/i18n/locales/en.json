@@ -1,0 +1,174 @@
+{
+  "common": {
+    "siteName": "Digital Citizen",
+    "joinButton": "Join",
+    "joinNowButton": "Join Now",
+    "learnMore": "Learn More"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Project",
+    "opportunities": "Opportunities & Challenges",
+    "library": "Library",
+    "blog": "Blog"
+  },
+  "footer": {
+    "description": "Equip Vietnamese students with comprehensive digital skills, building a generation of civilized, safe, and responsible digital citizens in the 4.0 era."
+  },
+  "home": {
+    "hero": {
+      "badge": "A Project for Vietnamese Students",
+      "title": "Digital Citizen in the Social Media Era",
+      "description": "Reshape how we interact, learn, and develop in the digital space. Equip yourself with essential skills to become a civilized, safe, and creative digital citizen.",
+      "cta": "Explore Now"
+    }
+  },
+  "team": {
+    "hero": {
+      "badge": "Project Introduction",
+      "title": "Building an Excellent Generation of",
+      "titleHighlight": "Digital Citizens",
+      "titleEnd": "",
+      "description": "An in-depth research project on the digital competency of Vietnamese students in a globalized context, aimed at building a safe, creative, and responsible digital environment."
+    },
+    "objectives": {
+      "title": "Research Objectives",
+      "items": [
+        "Comprehensively assess the current awareness and behavior of Vietnamese students in cyberspace.",
+        "Identify digital skill gaps that need to be addressed in higher education programs.",
+        "Propose a set of \"Digital Citizen 2.0\" standards suitable for Vietnam's culture and development direction."
+      ]
+    },
+    "significance": {
+      "title": "Practical Significance",
+      "description": "The research results provide valuable data for policymakers and universities in building soft skills and digital skills training programs for the 4.0 era.",
+      "detailedReport": "View Detailed Report"
+    },
+    "methodology": {
+      "title": "Research Methodology",
+      "subtitle": "Multi-dimensional approach ensuring objectivity and scientific rigor.",
+      "methods": [
+        {
+          "title": "Quantitative",
+          "description": "Extensive survey with over 5,000 samples from 20 major universities nationwide through standardized questionnaires."
+        },
+        {
+          "title": "Qualitative",
+          "description": "In-depth interviews and focus group discussions (FGD) with cybersecurity experts, lecturers, and representative student groups."
+        },
+        {
+          "title": "Document Research",
+          "description": "Synthesis and analysis of international digital competency frameworks (UNESCO, DigComp) compared with Vietnam's context."
+        }
+      ]
+    },
+    "illustration": {
+      "caption": "Building a sustainable digital future starts with the smallest insights."
+    }
+  },
+  "opportunities": {
+    "header": {
+      "title": "Two Sides of the",
+      "titleHighlight": "Digital World",
+      "description": "Explore unlimited potential and identify hidden risks to become a smart and safe digital citizen."
+    },
+    "opportunities": {
+      "title": "Opportunities",
+      "cards": [
+        {
+          "title": "Unlimited Global Learning",
+          "description": "Access the world's knowledge from leading universities with just one click."
+        },
+        {
+          "title": "Borderless Community Connection",
+          "description": "Erase geographical distance, cultural exchange, and build international networks more easily than ever."
+        },
+        {
+          "title": "Digital Creativity & Entrepreneurship",
+          "description": "Leverage open platforms to develop yourself, build personal branding, and unlock entrepreneurial opportunities."
+        }
+      ]
+    },
+    "challenges": {
+      "title": "Challenges",
+      "cards": [
+        {
+          "title": "Security & Data Privacy",
+          "description": "Information leaks, online fraud, and increasingly sophisticated cyberattacks threaten digital safety."
+        },
+        {
+          "title": "Mental Health & Technology Addiction",
+          "description": "Dependence on social media and gaming leads to anxiety, depression, and life imbalance."
+        },
+        {
+          "title": "Misinformation & Propaganda",
+          "description": "Fake news, conspiracy theories, and political propaganda easily spread and influence perception."
+        }
+      ]
+    }
+  },
+  "library": {
+    "title": "Multimedia Library",
+    "description": "Explore interactive videos, images, and resources from the project. A digital creativity space for the younger generation.",
+    "filters": {
+      "all": "All",
+      "video": "Videos",
+      "image": "Images"
+    },
+    "gallery": [
+      {
+        "type": "Video",
+        "title": "Forum: Students and Cybersecurity",
+        "description": "An event attracting over 500 students with leading speakers."
+      },
+      {
+        "type": "Image",
+        "title": "New Application Interface",
+        "description": ""
+      },
+      {
+        "type": "Image",
+        "title": "Group Activity",
+        "description": ""
+      },
+      {
+        "type": "Video",
+        "title": "Basic Security Guide",
+        "duration": "03:45"
+      },
+      {
+        "type": "Video",
+        "title": "Digital Content Creation Contest 2024",
+        "duration": "12:20"
+      }
+    ],
+    "loadMore": "Load More Content"
+  },
+  "blog": {
+    "hero": {
+      "title": "Student Corner &",
+      "titleHighlight": "Blog",
+      "description": "A place to share real experiences, diverse perspectives, and survival tips in the digital age from the Vietnamese student community itself. Explore and contribute your voice.",
+      "tags": ["#DigitalLife", "#GenZTech", "#StudentVoice"]
+    },
+    "featured": {
+      "title": "Featured Stories",
+      "stories": [
+        {
+          "tag": "Deep Dive",
+          "title": "From Cyberbullying Victim to Digital Safety Ambassador",
+          "description": "A 2-year journey of Minh Trang - a Bach Khoa student, transforming negative experiences into motivation to build a safe online support community.",
+          "author": "Minh Trang",
+          "university": "Bach Khoa University Hanoi"
+        },
+        {
+          "tag": "Skills",
+          "title": "5 AI Tools to Optimize Self-Learning",
+          "description": "Don't just use AI to write essays, make it your personal super tutor.",
+          "author": "Duc Anh",
+          "university": "FPT University"
+        }
+      ]
+    }
+  }
+}

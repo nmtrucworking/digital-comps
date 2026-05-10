@@ -1,0 +1,174 @@
+{
+  "common": {
+    "siteName": "Công dân số",
+    "joinButton": "Tham gia",
+    "joinNowButton": "Tham gia ngay",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Về dự án",
+    "opportunities": "Cơ hội & Thách thức",
+    "library": "Thư viện",
+    "blog": "Blog"
+  },
+  "footer": {
+    "description": "Trang bị kỹ năng số toàn diện cho sinh viên Việt Nam, hướng tới một thế hệ công dân mạng văn minh, an toàn và đầy bản lĩnh trong kỷ nguyên 4.0."
+  },
+  "home": {
+    "hero": {
+      "badge": "Dự án Dành cho Sinh viên Việt Nam",
+      "title": "Công dân số trong kỷ nguyên mạng xã hội",
+      "description": "Định hình lại cách chúng ta tương tác, học tập và phát triển trong không gian số. Trang bị những kỹ năng thiết yếu để trở thành một công dân mạng văn minh, an toàn và sáng tạo.",
+      "cta": "Khám phá ngay"
+    }
+  },
+  "team": {
+    "hero": {
+      "badge": "Giới thiệu đề tài",
+      "title": "Kiến tạo thế hệ",
+      "titleHighlight": "Công Dân Số",
+      "titleEnd": "ưu tú",
+      "description": "Dự án nghiên cứu chuyên sâu về năng lực số của sinh viên Việt Nam trong bối cảnh toàn cầu hóa, hướng tới việc xây dựng một môi trường mạng an toàn, sáng tạo và đầy trách nhiệm."
+    },
+    "objectives": {
+      "title": "Mục tiêu nghiên cứu",
+      "items": [
+        "Đánh giá toàn diện thực trạng nhận thức và hành vi của sinh viên Việt Nam trên không gian mạng hiện nay.",
+        "Xác định các lỗ hổng kỹ năng số cần được bồi đắp trong chương trình giáo dục đại học.",
+        "Đề xuất bộ tiêu chuẩn \"Công dân số 2.0\" phù hợp với văn hóa và định hướng phát triển của quốc gia."
+      ]
+    },
+    "significance": {
+      "title": "Ý nghĩa thực tiễn",
+      "description": "Kết quả nghiên cứu cung cấp cơ sở dữ liệu quý giá cho các nhà hoạch định chính sách, các trường đại học trong việc xây dựng chương trình đào tạo kỹ năng mềm và kỹ năng số thời kỳ 4.0.",
+      "detailedReport": "Xem báo cáo chi tiết"
+    },
+    "methodology": {
+      "title": "Phương pháp nghiên cứu",
+      "subtitle": "Tiếp cận đa chiều, đảm bảo tính khách quan và khoa học.",
+      "methods": [
+        {
+          "title": "Định lượng",
+          "description": "Khảo sát diện rộng với hơn 5.000 mẫu từ 20 trường đại học lớn trên toàn quốc thông qua bảng hỏi chuẩn hóa."
+        },
+        {
+          "title": "Định tính",
+          "description": "Phỏng vấn sâu và thảo luận nhóm (FGD) với các chuyên gia an ninh mạng, giảng viên và nhóm sinh viên tiêu biểu."
+        },
+        {
+          "title": "Nghiên cứu tài liệu",
+          "description": "Tổng hợp và phân tích các khung năng lực số quốc tế (UNESCO, DigComp) để đối chiếu với bối cảnh Việt Nam."
+        }
+      ]
+    },
+    "illustration": {
+      "caption": "Khởi tạo tương lai số bền vững bắt đầu từ những nhận thức nhỏ nhất."
+    }
+  },
+  "opportunities": {
+    "header": {
+      "title": "Hai mặt của",
+      "titleHighlight": "thế giới số",
+      "description": "Khám phá tiềm năng vô hạn và nhận diện những rủi ro tiềm ẩn để trở thành công dân số thông minh, an toàn."
+    },
+    "opportunities": {
+      "title": "Cơ hội",
+      "cards": [
+        {
+          "title": "Học tập toàn cầu không giới hạn",
+          "description": "Tiếp cận kho tàng tri thức nhân loại từ các trường đại học hàng đầu thế giới chỉ với một cú click chuột."
+        },
+        {
+          "title": "Kết nối cộng đồng phi biên giới",
+          "description": "Xóa nhòa khoảng cách địa lý, giao lưu văn hóa và xây dựng mạng lưới quan hệ quốc tế dễ dàng hơn bao giờ hết."
+        },
+        {
+          "title": "Sáng tạo & Khởi nghiệp số",
+          "description": "Tận dụng nền tảng mở để phát triển bản thân, xây dựng thương hiệu cá nhân và khai mở cơ hội khởi nghiệp."
+        }
+      ]
+    },
+    "challenges": {
+      "title": "Thách thức",
+      "cards": [
+        {
+          "title": "An ninh & Bảo mật dữ liệu",
+          "description": "Nguy cơ rò rỉ thông tin, lừa đảo trực tuyến và các cuộc tấn công mạng ngày càng tinh vi đe dọa sự an toàn số."
+        },
+        {
+          "title": "Sức khỏe tâm lý & Nghiện công nghệ",
+          "description": "Sự phụ thuộc vào mạng xã hội, trò chơi điện tử dẫn đến lo âu, trầm cảm và mất cân bằng đời sống."
+        },
+        {
+          "title": "Misinformation & Propaganda",
+          "description": "Tin tức giả, thuyết âm mưu và tuyên truyền chính trị dễ dàng lan truyền và ảnh hưởng đến nhận thức."
+        }
+      ]
+    }
+  },
+  "library": {
+    "title": "Thư viện đa phương tiện",
+    "description": "Khám phá các video, hình ảnh và tài liệu tương tác từ dự án. Không gian sáng tạo số dành cho thế hệ trẻ.",
+    "filters": {
+      "all": "Tất cả",
+      "video": "Video",
+      "image": "Hình ảnh"
+    },
+    "gallery": [
+      {
+        "type": "Video",
+        "title": "Toạ đàm: Sinh viên và An toàn không gian mạng",
+        "description": "Sự kiện thu hút hơn 500 sinh viên tham gia với các diễn giả hàng đầu."
+      },
+      {
+        "type": "Hình ảnh",
+        "title": "Giao diện ứng dụng mới",
+        "description": ""
+      },
+      {
+        "type": "Hình ảnh",
+        "title": "Hoạt động nhóm",
+        "description": ""
+      },
+      {
+        "type": "Video",
+        "title": "Hướng dẫn bảo mật cơ bản",
+        "duration": "03:45"
+      },
+      {
+        "type": "Video",
+        "title": "Cuộc thi Sáng tạo nội dung số 2024",
+        "duration": "12:20"
+      }
+    ],
+    "loadMore": "Tải thêm nội dung"
+  },
+  "blog": {
+    "hero": {
+      "title": "Góc sinh viên &",
+      "titleHighlight": "Blog",
+      "description": "Nơi chia sẻ trải nghiệm thực tế, những góc nhìn đa chiều và bí quyết sinh tồn trong kỷ nguyên số từ chính cộng đồng sinh viên Việt Nam. Khám phá và đóng góp tiếng nói của bạn.",
+      "tags": ["#DigitalLife", "#GenZTech", "#StudentVoice"]
+    },
+    "featured": {
+      "title": "Câu chuyện nổi bật",
+      "stories": [
+        {
+          "tag": "Trải nghiệm sâu",
+          "title": "Từ nạn nhân Cyberbullying đến Đại sứ An toàn không gian mạng",
+          "description": "Hành trình 2 năm của Minh Trang - sinh viên Bách Khoa, biến những trải nghiệm tiêu cực thành động lực xây dựng một cộng đồng hỗ trợ trực tuyến an toàn.",
+          "author": "Minh Trang",
+          "university": "ĐH Bách Khoa Hà Nội"
+        },
+        {
+          "tag": "Kỹ năng",
+          "title": "5 Công cụ AI giúp tối ưu hóa việc tự học",
+          "description": "Đừng chỉ dùng AI để viết essay, hãy biến nó thành gia sư cá nhân siêu việt của bạn.",
+          "author": "Đức Anh",
+          "university": "ĐH FPT"
+        }
+      ]
+    }
+  }
+}

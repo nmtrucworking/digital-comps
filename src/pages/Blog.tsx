@@ -1,6 +1,8 @@
 import { Star, Lightbulb, Scale, Brain } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Blog() {
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -9,19 +11,25 @@ export default function Blog() {
         <div className="flex flex-col md:flex-row gap-gutter items-center">
           <div className="w-full md:w-1/2 space-y-md">
             <h1 className="font-display-xl text-display-xl text-on-background relative z-10">
-              Góc sinh viên & <span className="text-primary-container relative">Blog
+              {t('blog.hero.title')} <span className="text-primary-container relative">{t('blog.hero.titleHighlight')}
                 <svg className="absolute w-full h-4 -bottom-1 left-0 text-tertiary-container/40 -z-10" preserveAspectRatio="none" viewBox="0 0 100 20">
                   <path d="M0 10 Q50 20 100 10" fill="none" stroke="currentColor" strokeWidth="8"></path>
                 </svg>
               </span>
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-              Nơi chia sẻ trải nghiệm thực tế, những góc nhìn đa chiều và bí quyết sinh tồn trong kỷ nguyên số từ chính cộng đồng sinh viên Việt Nam. Khám phá và đóng góp tiếng nói của bạn.
+              {t('blog.hero.description')}
             </p>
             <div className="flex flex-wrap gap-sm pt-sm">
-              <span className="px-4 py-2 bg-primary-container/10 text-primary-container rounded-full font-label-bold text-label-bold">#DigitalLife</span>
-              <span className="px-4 py-2 bg-tertiary-container/20 text-tertiary rounded-full font-label-bold text-label-bold">#GenZTech</span>
-              <span className="px-4 py-2 bg-secondary-container/10 text-secondary-container rounded-full font-label-bold text-label-bold">#StudentVoice</span>
+              {t('blog.hero.tags', { returnObjects: true }).map((tag: string, idx: number) => (
+                <span key={idx} className={`px-4 py-2 rounded-full font-label-bold text-label-bold ${
+                  idx === 0 ? 'bg-primary-container/10 text-primary-container' :
+                  idx === 1 ? 'bg-tertiary-container/20 text-tertiary' :
+                  'bg-secondary-container/10 text-secondary-container'
+                }`}>
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
           <div className="w-full md:w-1/2 relative h-[400px]">
@@ -45,58 +53,64 @@ export default function Blog() {
           <div className="p-3 bg-surface-container-high rounded-lg text-primary-container shadow-sm">
             <Star className="w-6 h-6 fill-current" />
           </div>
-          <h2 className="font-headline-lg text-headline-lg text-on-background">Câu chuyện nổi bật</h2>
+          <h2 className="font-headline-lg text-headline-lg text-on-background">{t('blog.featured.title')}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-auto md:auto-rows-[300px]">
-          {/* Large Feature Card */}
-          <div className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
-            <img 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBol_F-vDsMVj43OmIR72PIyZHYhFs9gfiza0pNn8fE1dBnIzBivS0SWKgNUopj06LJ_2Z84J3_migenfDZ2JDkyhLuuhP4nG_B4a6cHpsPuWT3Ycsup7nlJDZXW0sBwHFt3I1EJk8drgdhzH-ESVGVIhnG6uJKYoPZCL6q95Vw-QgXvP5UmGawgyhySXdonhwp567_4_JKikY4qctbnR33ANNZtmQbr8csbLivR-iR9prtWXwhzkrHSn9si57z7OumL_vOwAKfiw" 
-              alt="Minh Trang"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-lg w-full md:w-3/4">
-              <span className="inline-block px-3 py-1 mb-sm bg-primary-container text-on-primary-container rounded-full font-label-bold text-xs uppercase tracking-wider">Trải nghiệm sâu</span>
-              <h3 className="font-headline-lg text-headline-md text-on-primary mb-sm leading-tight group-hover:text-primary-fixed transition-colors">
-                Từ nạn nhân Cyberbullying đến Đại sứ An toàn không gian mạng
-              </h3>
-              <p className="font-body-md text-body-md text-surface-container-highest mb-md line-clamp-2">
-                Hành trình 2 năm của Minh Trang - sinh viên Bách Khoa, biến những trải nghiệm tiêu cực thành động lực xây dựng một cộng đồng hỗ trợ trực tuyến an toàn.
-              </p>
-              <div className="flex items-center gap-sm">
-                <div className="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-primary-container">
-                  <img 
-                    className="w-full h-full object-cover" 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgV0cvhAQ2sC4Qi2Z-jGnHJkbA4sZM_clxDp3Y2vhdpDConmLyQ4mcg4ODI7OscIu_vMyGXfOlvK7jcToejAj8ZwgH8QTyMhI2mNxVRntKJYpH8lS526XVuini9PavybslKCsFj2nLHoQ5LLRFVzKac2hfk68hYRQ54qL4y3VgXXlYPpP_gLrg5lBnSO4U6-ATRUATIOHYbr6nAchURFk2uNJ3zsAaz0ICUFT8cMgWBqb64__vnP8w0MuZNlAFaE1wqDj_tVW0Dw" 
-                    alt="Portrait"
-                  />
-                </div>
-                <div>
-                  <p className="font-label-bold text-label-bold text-on-primary">Minh Trang</p>
-                  <p className="text-xs text-surface-dim">ĐH Bách Khoa Hà Nội</p>
+          {/* Render featured stories from i18n data */}
+          {t('blog.featured.stories', { returnObjects: true }).map((story: any, idx: number) => (
+            idx === 0 ? (
+              // Large Feature Card for first story
+              <div key={idx} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
+                <img 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBol_F-vDsMVj43OmIR72PIyZHYhFs9gfiza0pNn8fE1dBnIzBivS0SWKgNUopj06LJ_2Z84J3_migenfDZ2JDkyhLuuhP4nG_B4a6cHpsPuWT3Ycsup7nlJDZXW0sBwHFt3I1EJk8drgdhzH-ESVGVIhnG6uJKYoPZCL6q95Vw-QgXvP5UmGawgyhySXdonhwp567_4_JKikY4qctbnR33ANNZtmQbr8csbLivR-iR9prtWXwhzkrHSn9si57z7OumL_vOwAKfiw" 
+                  alt="Minh Trang"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-lg w-full md:w-3/4">
+                  <span className="inline-block px-3 py-1 mb-sm bg-primary-container text-on-primary-container rounded-full font-label-bold text-xs uppercase tracking-wider">{story.tag}</span>
+                  <h3 className="font-headline-lg text-headline-md text-on-primary mb-sm leading-tight group-hover:text-primary-fixed transition-colors">
+                    {story.title}
+                  </h3>
+                  <p className="font-body-md text-body-md text-surface-container-highest mb-md line-clamp-2">
+                    {story.description}
+                  </p>
+                  <div className="flex items-center gap-sm">
+                    <div className="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-primary-container">
+                      <img 
+                        className="w-full h-full object-cover" 
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgV0cvhAQ2sC4Qi2Z-jGnHJkbA4sZM_clxDp3Y2vhdpDConmLyQ4mcg4ODI7OscIu_vMyGXfOlvK7jcToejAj8ZwgH8QTyMhI2mNxVRntKJYpH8lS526XVuini9PavybslKCsFj2nLHoQ5LLRFVzKac2hfk68hYRQ54qL4y3VgXXlYPpP_gLrg5lBnSO4U6-ATRUATIOHYbr6nAchURFk2uNJ3zsAaz0ICUFT8cMgWBqb64__vnP8w0MuZNlAFaE1wqDj_tVW0Dw" 
+                        alt="Portrait"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-label-bold text-label-bold text-on-primary">{story.author}</p>
+                      <p className="text-xs text-surface-dim">{story.university}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Small Feature Card 1 */}
-          <div className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:bg-surface-container transition-colors">
-            <div className="absolute top-md right-md">
-              <Lightbulb className="w-8 h-8 text-tertiary-container fill-current" />
-            </div>
-            <span className="inline-block px-3 py-1 mb-xs bg-tertiary-container/20 text-tertiary rounded-full font-label-bold text-[10px] uppercase w-fit">Kỹ năng</span>
-            <h4 className="font-headline-md text-xl font-bold text-on-background mb-xs leading-snug">
-              5 Công cụ AI giúp tối ưu hóa việc tự học
-            </h4>
-            <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2">
-              Đừng chỉ dùng AI để viết essay, hãy biến nó thành gia sư cá nhân siêu việt của bạn.
-            </p>
-            <p className="font-label-bold text-xs text-primary">Bởi Đức Anh - ĐH FPT</p>
-          </div>
-
-          {/* Small Feature Card 2 */}
-          <div className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-gradient-to-br from-surface to-surface-container-high border border-outline-variant/30 flex flex-col justify-end p-md hover:border-primary-container/50 transition-colors">
+            ) : (
+              // Small Feature Cards for subsequent stories
+              <div key={idx} className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:bg-surface-container transition-colors">
+                <div className="absolute top-md right-md">
+                  {idx === 1 && <Lightbulb className="w-8 h-8 text-tertiary-container fill-current" />}
+                </div>
+                <span className={`inline-block px-3 py-1 mb-xs rounded-full font-label-bold text-[10px] uppercase w-fit ${
+                  idx === 1 ? 'bg-tertiary-container/20 text-tertiary' : ''
+                }`}>{story.tag}</span>
+                <h4 className="font-headline-md text-xl font-bold text-on-background mb-xs leading-snug">
+                  {story.title}
+                </h4>
+                <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2">
+                  {story.description}
+                </p>
+                <p className="font-label-bold text-xs text-primary">Bởi {story.author} - {story.university}</p>
+              </div>
+            )
+          ))}
+        </div>
+      </section>
             <div className="absolute -right-4 -bottom-4 opacity-10">
               <Scale className="w-32 h-32 fill-current" />
             </div>

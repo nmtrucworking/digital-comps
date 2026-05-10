@@ -1,28 +1,30 @@
 import { Play, Maximize2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Library() {
+  const { t } = useTranslation();
   return (
     <div className="flex-grow w-full max-w-[1440px] mx-auto px-8 md:px-20 py-xl flex flex-col gap-lg">
       {/* Header Section */}
       <section className="flex flex-col items-center text-center gap-md">
         <h1 className="font-display-xl text-display-xl text-on-background relative">
-          Thư viện đa phương tiện
+          {t('library.title')}
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-          Khám phá các video, hình ảnh và tài liệu tương tác từ dự án. Không gian sáng tạo số dành cho thế hệ trẻ.
+          {t('library.description')}
         </p>
       </section>
 
       {/* Filters / Tabs */}
       <section className="flex justify-center gap-sm">
         <button className="px-6 py-2 rounded-full font-label-bold text-label-bold bg-primary-container text-on-primary shadow-md">
-          Tất cả
+          {t('library.filters.all')}
         </button>
         <button className="px-6 py-2 rounded-full font-label-bold text-label-bold bg-primary-container/10 text-primary-container hover:bg-primary-container/20 transition-colors">
-          Video
+          {t('library.filters.video')}
         </button>
         <button className="px-6 py-2 rounded-full font-label-bold text-label-bold bg-primary-container/10 text-primary-container hover:bg-primary-container/20 transition-colors">
-          Hình ảnh
+          {t('library.filters.image')}
         </button>
       </section>
 
@@ -123,7 +125,7 @@ export default function Library() {
       {/* Load More */}
       <div className="flex justify-center mt-md">
         <button className="border-2 border-primary text-primary font-button text-button px-8 py-3 rounded-full hover:bg-primary/5 transition-colors uppercase">
-          Tải thêm nội dung
+          {t('library.loadMore')}
         </button>
       </div>
     </div>

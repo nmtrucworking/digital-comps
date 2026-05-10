@@ -1,8 +1,10 @@
 import { Rocket, GraduationCap, Network, AlertTriangle, Shield, ShieldAlert, Lightbulb, Brain, ArrowRight, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Opportunities() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,10 +34,10 @@ export default function Opportunities() {
       <header className="text-center mb-xl relative reveal opacity-0 translate-y-10 transition-all duration-1000">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 blur-[100px] -z-10 rounded-full animate-pulse" />
         <h1 className="font-display-xl text-display-xl text-on-background mb-md tracking-tight">
-          Hai mặt của <span className="text-primary">thế giới số</span>
+          {t('opportunities.header.title')} <span className="text-primary">{t('opportunities.header.titleHighlight')}</span>
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-          Khám phá tiềm năng vô hạn và nhận diện những rủi ro tiềm ẩn để trở thành công dân số thông minh, an toàn.
+          {t('opportunities.header.description')}
         </p>
       </header>
 
@@ -58,64 +60,31 @@ export default function Opportunities() {
               <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
                 <Rocket className="w-6 h-6" />
               </div>
-              Cơ hội
+              {t('opportunities.opportunities.title')}
             </h2>
           </div>
 
           <div className="grid gap-6">
-            {/* Card 1: Học tập */}
-            <div className="group bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,106,98,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
-              <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 text-on-primary-fixed shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <GraduationCap className="w-7 h-7" />
+            {t('opportunities.opportunities.cards', { returnObjects: true }).map((card: any, idx: number) => (
+              <div key={idx} className="group bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,106,98,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
+                <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 text-on-primary-fixed shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  {idx === 0 && <GraduationCap className="w-7 h-7" />}
+                  {idx === 1 && <Network className="w-7 h-7" />}
+                  {idx === 2 && <Lightbulb className="w-7 h-7" />}
+                </div>
+                <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
+                  {card.title}
+                </h3>
+                <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
+                  {card.description}
+                </p>
+                <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-label-bold text-sm hover:text-primary-container transition-colors w-max group/btn">
+                  <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all group-hover/btn:after:w-full">{t('common.learnMore')}</span>
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
               </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
-                Học tập toàn cầu không giới hạn
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Tiếp cận kho tàng tri thức nhân loại từ các trường đại học hàng đầu thế giới chỉ với một cú click chuột.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-label-bold text-sm hover:text-primary-container transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Card 2: Kết nối */}
-            <div className="group bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,106,98,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-200">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
-              <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 text-on-primary-fixed shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <Network className="w-7 h-7" />
-              </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
-                Kết nối cộng đồng phi biên giới
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Xóa nhòa khoảng cách địa lý, giao lưu văn hóa và xây dựng mạng lưới quan hệ quốc tế dễ dàng hơn bao giờ hết.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-label-bold text-sm hover:text-primary-container transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Card 3: Sáng tạo số */}
-            <div className="group bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,106,98,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
-              <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 text-on-primary-fixed shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <Lightbulb className="w-7 h-7" />
-              </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
-                Sáng tạo & Khởi nghiệp số
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Tận dụng nền tảng mở để phát triển bản thân, xây dựng thương hiệu cá nhân và khai mở cơ hội khởi nghiệp.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-label-bold text-sm hover:text-primary-container transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -127,64 +96,31 @@ export default function Opportunities() {
               <div className="w-10 h-10 bg-error/10 rounded-xl flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6" />
               </div>
-              Thách thức
+              {t('opportunities.challenges.title')}
             </h2>
           </div>
 
           <div className="grid gap-6">
-            {/* Card 1: An ninh mạng */}
-            <div className="group bg-error-container/5 backdrop-blur-xl border border-error/10 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(186,26,26,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -z-10 group-hover:bg-error/10 transition-colors" />
-              <div className="w-14 h-14 bg-error-container rounded-2xl flex items-center justify-center mb-6 text-on-error-container shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <Shield className="w-7 h-7" />
+            {t('opportunities.challenges.cards', { returnObjects: true }).map((card: any, idx: number) => (
+              <div key={idx} className="group bg-error-container/5 backdrop-blur-xl border border-error/10 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(186,26,26,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -z-10 group-hover:bg-error/10 transition-colors" />
+                <div className="w-14 h-14 bg-error-container rounded-2xl flex items-center justify-center mb-6 text-on-error-container shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  {idx === 0 && <Shield className="w-7 h-7" />}
+                  {idx === 1 && <ShieldAlert className="w-7 h-7" />}
+                  {idx === 2 && <Brain className="w-7 h-7" />}
+                </div>
+                <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-error transition-colors">
+                  {card.title}
+                </h3>
+                <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
+                  {card.description}
+                </p>
+                <Link to="/blog" className="inline-flex items-center gap-2 text-error font-label-bold text-sm hover:text-error/80 transition-colors w-max group/btn">
+                  <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-error after:transition-all group-hover/btn:after:w-full">{t('common.learnMore')}</span>
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
               </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-error transition-colors">
-                An ninh & Bảo mật dữ liệu
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Nguy cơ rò rỉ thông tin, lừa đảo trực tuyến và các cuộc tấn công mạng ngày càng tinh vi đe dọa sự an toàn số.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-error font-label-bold text-sm hover:text-error/80 transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-error after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Card 2: Tin giả */}
-            <div className="group bg-error-container/5 backdrop-blur-xl border border-error/10 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(186,26,26,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-200">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -z-10 group-hover:bg-error/10 transition-colors" />
-              <div className="w-14 h-14 bg-error-container rounded-2xl flex items-center justify-center mb-6 text-on-error-container shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <ShieldAlert className="w-7 h-7" />
-              </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-error transition-colors">
-                Vấn nạn tin giả & Thao túng
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Sự lan truyền nhanh chóng của thông tin sai lệch đòi hỏi kỹ năng kiểm chứng và tư duy phản biện nhạy bén.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-error font-label-bold text-sm hover:text-error/80 transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-error after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Card 3: Tâm lý */}
-            <div className="group bg-error-container/5 backdrop-blur-xl border border-error/10 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(186,26,26,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -z-10 group-hover:bg-error/10 transition-colors" />
-              <div className="w-14 h-14 bg-error-container rounded-2xl flex items-center justify-center mb-6 text-on-error-container shadow-inner group-hover:scale-110 transition-transform duration-500">
-                <Brain className="w-7 h-7" />
-              </div>
-              <h3 className="font-headline-md text-2xl font-bold text-on-surface mb-4 group-hover:text-error transition-colors">
-                Áp lực tâm lý & Sức khỏe
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-8 flex-1 leading-relaxed">
-                Hội chứng FOMO, so sánh độc hại và bắt nạt trên mạng (Cyberbullying) ảnh hưởng nghiêm trọng đến Gen Z.
-              </p>
-              <Link to="/blog" className="inline-flex items-center gap-2 text-error font-label-bold text-sm hover:text-error/80 transition-colors w-max group/btn">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-error after:transition-all group-hover/btn:after:w-full">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>
