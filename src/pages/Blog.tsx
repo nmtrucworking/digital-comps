@@ -1,4 +1,4 @@
-import { Star, Lightbulb, Scale, Brain } from 'lucide-react';
+import { Star, Lightbulb, Brain } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Blog() {
@@ -21,7 +21,7 @@ export default function Blog() {
               {t('blog.hero.description')}
             </p>
             <div className="flex flex-wrap gap-sm pt-sm">
-              {t('blog.hero.tags', { returnObjects: true }).map((tag: string, idx: number) => (
+              {(t('blog.hero.tags', { returnObjects: true }) as string[]).map((tag: string, idx: number) => (
                 <span key={idx} className={`px-4 py-2 rounded-full font-label-bold text-label-bold ${
                   idx === 0 ? 'bg-primary-container/10 text-primary-container' :
                   idx === 1 ? 'bg-tertiary-container/20 text-tertiary' :
@@ -57,7 +57,7 @@ export default function Blog() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-auto md:auto-rows-[300px]">
           {/* Render featured stories from i18n data */}
-          {t('blog.featured.stories', { returnObjects: true }).map((story: any, idx: number) => (
+          {(t('blog.featured.stories', { returnObjects: true }) as any[]).map((story: any, idx: number) => (
             idx === 0 ? (
               // Large Feature Card for first story
               <div key={idx} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
@@ -109,20 +109,6 @@ export default function Blog() {
               </div>
             )
           ))}
-        </div>
-      </section>
-            <div className="absolute -right-4 -bottom-4 opacity-10">
-              <Scale className="w-32 h-32 fill-current" />
-            </div>
-            <span className="inline-block px-3 py-1 mb-xs bg-secondary-container/20 text-secondary-container rounded-full font-label-bold text-[10px] uppercase w-fit z-10">Cân bằng</span>
-            <h4 className="font-headline-md text-xl font-bold text-on-background mb-xs leading-snug z-10">
-              Digital Detox cuối tuần: Làm sao để không FOMO?
-            </h4>
-            <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2 z-10">
-              Thử thách 48h tắt thông báo mạng xã hội và những thay đổi bất ngờ về tâm lý.
-            </p>
-            <p className="font-label-bold text-xs text-primary z-10">Bởi Lan Phương - ĐH KHXH&NV</p>
-          </div>
         </div>
       </section>
 

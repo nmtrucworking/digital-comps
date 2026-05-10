@@ -65,7 +65,7 @@ export default function Opportunities() {
           </div>
 
           <div className="grid gap-6">
-            {t('opportunities.opportunities.cards', { returnObjects: true }).map((card: any, idx: number) => (
+            {(t('opportunities.opportunities.cards', { returnObjects: true }) as any[]).map((card: any, idx: number) => (
               <div key={idx} className="group bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,106,98,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
                 <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 text-on-primary-fixed shadow-inner group-hover:scale-110 transition-transform duration-500">
@@ -101,7 +101,7 @@ export default function Opportunities() {
           </div>
 
           <div className="grid gap-6">
-            {t('opportunities.challenges.cards', { returnObjects: true }).map((card: any, idx: number) => (
+            {(t('opportunities.challenges.cards', { returnObjects: true }) as any[]).map((card: any, idx: number) => (
               <div key={idx} className="group bg-error-container/5 backdrop-blur-xl border border-error/10 rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(186,26,26,0.1)] transition-all duration-700 hover:-translate-y-2 flex flex-col h-full relative overflow-hidden reveal opacity-0 translate-y-10 delay-100">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -z-10 group-hover:bg-error/10 transition-colors" />
                 <div className="w-14 h-14 bg-error-container rounded-2xl flex items-center justify-center mb-6 text-on-error-container shadow-inner group-hover:scale-110 transition-transform duration-500">

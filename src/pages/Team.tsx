@@ -31,7 +31,7 @@ export default function Team() {
             <h2 className="font-headline-lg text-headline-lg text-on-surface">{t('team.objectives.title')}</h2>
           </div>
           <ul className="space-y-4 font-body-lg text-body-lg text-on-surface-variant relative z-10">
-            {t('team.objectives.items', { returnObjects: true }).map((item: string, idx: number) => (
+            {(t('team.objectives.items', { returnObjects: true }) as string[]).map((item: string, idx: number) => (
               <li key={idx} className="flex gap-3">
                 <CheckCircle className="w-6 h-6 text-primary-container shrink-0 mt-1" />
                 <span>{item}</span>
@@ -65,7 +65,7 @@ export default function Team() {
           <p className="font-body-lg text-body-lg text-on-surface-variant">{t('team.methodology.subtitle')}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {t('team.methodology.methods', { returnObjects: true }).map((method: any, idx: number) => (
+          {(t('team.methodology.methods', { returnObjects: true }) as any[]).map((method: any, idx: number) => (
             <div key={idx} className="h-full flex flex-col bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-primary-container/50 transition-colors shadow-sm hover:shadow-md relative pt-12">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center border-4 border-surface shadow-sm">
                 {idx === 0 && <BarChart className="w-8 h-8 text-secondary-container" />}
