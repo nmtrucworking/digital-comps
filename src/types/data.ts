@@ -23,6 +23,12 @@ export interface ImageItem {
   altText: string;
   category?: string;
   caption?: string;
+  subImages?: { 
+    id: string; 
+    url: string;
+    altText: string; 
+    caption?: string 
+  }[];
 }
 
 export interface BlogPost {

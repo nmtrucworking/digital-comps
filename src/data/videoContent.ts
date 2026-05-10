@@ -27,6 +27,8 @@ export const videoContent: Video[] = [
 		title: 'Hướng dẫn bảo mật cơ bản',
 		duration: '03:45',
 		viewCount: 1280,
+		speakers: ['Chuyên gia bảo mật C'],
+		videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 		thumbnailUrl: 'https://via.placeholder.com/800x450.png?text=Video+2'
 	},
 	{
@@ -34,6 +36,8 @@ export const videoContent: Video[] = [
 		title: "Cuộc thi Sáng tạo nội dung số 2024 - Tổng hợp",
 		duration: '12:20',
 		viewCount: 842,
+		speakers: ['Chuyên gia bảo mật D'],
+		videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 		thumbnailUrl: 'https://via.placeholder.com/1200x720.png?text=Video+3'
 	}
 ];

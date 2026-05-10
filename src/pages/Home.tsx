@@ -49,7 +49,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 mt-sm w-full"
           >
-            <Link to="/opportunities" className="bg-gradient-to-r from-tertiary via-primary to-tertiary bg-[length:200%_auto] animate-text-gradient text-on-primary font-button text-button uppercase px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(0,106,98,0.3)] hover:shadow-[0_12px_28px_rgba(120,37,234,0.4)] transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:-translate-y-1 border border-white/20">
+            <Link to="/blog" className="bg-gradient-to-r from-tertiary via-primary to-tertiary bg-[length:200%_auto] animate-text-gradient text-on-primary font-button text-button uppercase px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(0,106,98,0.3)] hover:shadow-[0_12px_28px_rgba(120,37,234,0.4)] transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:-translate-y-1 border border-white/20">
               {t('home.hero.cta')}
               <ArrowRight className="w-5 h-5" />
             </Link>
