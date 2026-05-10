@@ -86,9 +86,9 @@ export default function Team() {
 
       <section className="mb-xl">
         <div className="text-center mb-lg">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Đội ngũ phát triển</h2>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">{t('team.members.title')}</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-            Những người đồng hành cùng bạn trên chặng đường xây dựng một cộng đồng số vững mạnh và an toàn.
+            {t('team.members.description')}
           </p>
         </div>
 

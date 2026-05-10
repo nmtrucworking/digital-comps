@@ -51,7 +51,8 @@
       "badge": "Dự án Dành cho Sinh viên Việt Nam",
       "title": "Công dân số trong kỷ nguyên mạng xã hội",
       "description": "Định hình lại cách chúng ta tương tác, học tập và phát triển trong không gian số. Trang bị những kỹ năng thiết yếu để trở thành một công dân mạng văn minh, an toàn và sáng tạo.",
-      "cta": "Khám phá ngay"
+      "cta": "Khám phá ngay",
+      "watchVideo": "Xem Video"
     }
   },
   "team": {
@@ -95,6 +96,10 @@
     },
     "illustration": {
       "caption": "Khởi tạo tương lai số bền vững bắt đầu từ những nhận thức nhỏ nhất."
+    },
+    "members": {
+      "title": "Đội ngũ phát triển",
+      "description": "Những người đồng hành cùng bạn trên chặng đường xây dựng một cộng đồng số vững mạnh và an toàn."
     }
   },
   "opportunities": {

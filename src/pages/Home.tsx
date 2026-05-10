@@ -55,7 +55,7 @@ export default function Home() {
             </Link>
             <button className="border-2 border-primary text-primary font-button text-button uppercase px-8 py-4 rounded-full hover:bg-primary/5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:-translate-y-0.5">
               <PlayCircle className="w-5 h-5" />
-              Xem Video
+              {t('home.hero.watchVideo')}
             </button>
           </motion.div>
         </div>
@@ -74,10 +74,10 @@ export default function Home() {
           className="text-center mb-lg"
         >
           <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">
-            Đội ngũ phát triển
+            {t('team.members.title')}
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-            Những người đồng hành cùng bạn trên chặng đường xây dựng một cộng đồng số vững mạnh và an toàn.
+            {t('team.members.description')}
           </p>
         </motion.div>
 

@@ -51,7 +51,8 @@
       "badge": "A Project for Vietnamese Students",
       "title": "Digital Citizen in the Social Media Era",
       "description": "Reshape how we interact, learn, and develop in the digital space. Equip yourself with essential skills to become a civilized, safe, and creative digital citizen.",
-      "cta": "Explore Now"
+      "cta": "Explore Now",
+      "watchVideo": "Watch Video"
     }
   },
   "team": {
@@ -95,6 +96,10 @@
     },
     "illustration": {
       "caption": "Building a sustainable digital future starts with the smallest insights."
+    },
+    "members": {
+      "title": "Development Team",
+      "description": "The companions on your journey to building a strong and safe digital community."
     }
   },
   "opportunities": {
