@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FileText, Zap, AlertTriangle, Scale, Briefcase, Users, Link2, RefreshCw, Gavel, Phone, ChevronRight } from 'lucide-react';
+import { termsSections, type TermsContentBlock, type TermsSectionId } from '../data/terms';
 
 const sectionIcons = {
   acceptance: <FileText className="w-5 h-5" />,
@@ -16,31 +17,86 @@ const sectionIcons = {
 };
 
 interface TableOfContentsItem {
-  id: string;
+  id: TermsSectionId;
   label: string;
 }
 
 export default function Terms() {
   const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState('acceptance');
+  const [activeSection, setActiveSection] = useState<TermsSectionId>('acceptance');
 
-  const tableOfContents: TableOfContentsItem[] = [
-    { id: 'acceptance', label: t('terms.sections.acceptance.title') },
-    { id: 'useLicense', label: t('terms.sections.useLicense.title') },
-    { id: 'disclaimer', label: t('terms.sections.disclaimer.title') },
-    { id: 'limitations', label: t('terms.sections.limitations.title') },
-    { id: 'intellectualProperty', label: t('terms.sections.intellectualProperty.title') },
-    { id: 'userConduct', label: t('terms.sections.userConduct.title') },
-    { id: 'thirdPartyLinks', label: t('terms.sections.thirdPartyLinks.title') },
-    { id: 'modifications', label: t('terms.sections.modifications.title') },
-    { id: 'governingLaw', label: t('terms.sections.governingLaw.title') },
-    { id: 'contact', label: t('terms.sections.contact.title') },
-  ];
+  const tableOfContents: TableOfContentsItem[] = termsSections.map((section) => ({
+    id: section.id,
+    label: t(section.titleKey),
+  }));
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: TermsSectionId) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const renderContentBlock = (block: TermsContentBlock) => {
+    if (block.type === 'paragraph') {
+      return <p key={block.key}>{t(block.key)}</p>;
+    }
+
+    if (block.type === 'title') {
+      return (
+        <p key={block.key} className="font-semibold text-on-background">
+          {t(block.key)}
+        </p>
+      );
+    }
+
+    return (
+      <ul key={block.items.join('|')} className="space-y-3 pl-6">
+        {block.items.map((itemKey) => (
+          <li key={itemKey} className="flex gap-3">
+            <span className={`font-bold ${block.bulletClassName}`}>•</span>
+            <span>{t(itemKey)}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  const renderSection = (section: (typeof termsSections)[number]) => {
+    if (section.layout === 'contact') {
+      return (
+        <div id={section.id} key={section.id} className="scroll-mt-20">
+          <div className={section.bodyClassName}>
+            <div className="flex items-start gap-4">
+              <div className={section.iconWrapperClassName}>{sectionIcons[section.icon]}</div>
+              <div>
+                <h2 className="font-display-md text-on-background">{t(section.titleKey)}</h2>
+              </div>
+            </div>
+            {section.blocks.map((block) => renderContentBlock(block))}
+            {section.cta ? (
+              <a href={section.cta.href} className={section.cta.className}>
+                {t(section.cta.labelKey)}
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            ) : null}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div id={section.id} key={section.id} className="scroll-mt-20">
+        <div className="flex items-start gap-4 mb-6">
+          <div className={section.iconWrapperClassName}>{sectionIcons[section.icon]}</div>
+          <div>
+            <h2 className="font-display-md text-on-background">{t(section.titleKey)}</h2>
+          </div>
+        </div>
+        <div className={section.bodyClassName}>
+          {section.blocks.map((block) => renderContentBlock(block))}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -75,7 +131,7 @@ export default function Terms() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h1 className="font-display-xl text-on-background leading-tight">
+                <h1 className="text-display-xl font-bold text-on-background leading-tight">
                   {t('terms.title')}
                 </h1>
                 <p className="font-body-lg text-on-surface-variant leading-relaxed ">
@@ -104,7 +160,7 @@ export default function Terms() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative space-y-3">
                   {/* Main Document Card */}
-                  <div className="bg-surface-container-highest rounded-2xl p-8 shadow-2xl border border-outline-variant w-80 transform hover:scale-105 transition-transform">
+                  <div className="bg-surface-container- rounded-2xl p-8 shadow-2xl border border-outline-variant w-80 transform hover:scale-105 transition-transform">
                     <div className="space-y-4">
                       <div className="h-3 bg-primary/20 rounded w-3/4"></div>
                       <div className="h-2 bg-primary/10 rounded w-full"></div>
@@ -116,14 +172,14 @@ export default function Terms() {
                     </div>
                   </div>
                   {/* Floating Label Cards */}
-                  <div className="absolute -top-4 -right-8 bg-surface-container-highest rounded-lg p-3 shadow-lg border border-outline-variant w-40 hover:shadow-xl transition-all">
+                  <div className="absolute -top-4 -right-8 bg-surface-container- rounded-lg p-3 shadow-lg border border-outline-variant w-40 hover:shadow-xl transition-all">
                     <div className="flex items-center gap-2 mb-1">
                       <Gavel className="w-4 h-4 text-secondary" />
                       <span className="font-label-bold text-xs text-on-background">Legal Binding</span>
                     </div>
                     <p className="font-body-xs text-on-surface-variant">Enforceable terms</p>
                   </div>
-                  <div className="absolute -bottom-4 -left-8 bg-surface-container-highest rounded-lg p-3 shadow-lg border border-outline-variant w-40 hover:shadow-xl transition-all">
+                  <div className="absolute -bottom-4 -left-8 bg-surface-container- rounded-lg p-3 shadow-lg border border-outline-variant w-40 hover:shadow-xl transition-all">
                     <div className="flex items-center gap-2 mb-1">
                       <Scale className="w-4 h-4 text-primary" />
                       <span className="font-label-bold text-xs text-on-background">Fair & Balanced</span>
@@ -168,223 +224,7 @@ export default function Terms() {
 
             {/* Content */}
             <div className="lg:col-span-3 space-y-8">
-              {/* Section 1: Acceptance */}
-              <div id="acceptance" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-secondary/10 rounded-lg text-secondary">
-                    {sectionIcons.acceptance}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.acceptance.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.acceptance.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 2: Use License */}
-              <div id="useLicense" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-lg text-primary">
-                    {sectionIcons.useLicense}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.useLicense.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.useLicense.content1')}</p>
-                  <p>{t('terms.sections.useLicense.content2')}</p>
-                  <p className="font-semibold text-on-background">{t('terms.sections.useLicense.restrictions')}</p>
-                  <ul className="space-y-3 pl-6">
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>{t('terms.sections.useLicense.bullet1')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>{t('terms.sections.useLicense.bullet2')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>{t('terms.sections.useLicense.bullet3')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>{t('terms.sections.useLicense.bullet4')}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Section 3: Disclaimer */}
-              <div id="disclaimer" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-tertiary/10 rounded-lg text-tertiary">
-                    {sectionIcons.disclaimer}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.disclaimer.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.disclaimer.content1')}</p>
-                  <p>{t('terms.sections.disclaimer.content2')}</p>
-                </div>
-              </div>
-
-              {/* Section 4: Limitations */}
-              <div id="limitations" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-secondary/10 rounded-lg text-secondary">
-                    {sectionIcons.limitations}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.limitations.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.limitations.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 5: Intellectual Property */}
-              <div id="intellectualProperty" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-lg text-primary">
-                    {sectionIcons.intellectualProperty}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.intellectualProperty.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.intellectualProperty.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 6: User Conduct */}
-              <div id="userConduct" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-tertiary/10 rounded-lg text-tertiary">
-                    {sectionIcons.userConduct}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.userConduct.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.userConduct.description')}</p>
-                  <ul className="space-y-3 pl-6">
-                    <li className="flex gap-3">
-                      <span className="text-tertiary font-bold">•</span>
-                      <span>{t('terms.sections.userConduct.bullet1')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-tertiary font-bold">•</span>
-                      <span>{t('terms.sections.userConduct.bullet2')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-tertiary font-bold">•</span>
-                      <span>{t('terms.sections.userConduct.bullet3')}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-tertiary font-bold">•</span>
-                      <span>{t('terms.sections.userConduct.bullet4')}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Section 7: Third-party Links */}
-              <div id="thirdPartyLinks" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-secondary/10 rounded-lg text-secondary">
-                    {sectionIcons.thirdPartyLinks}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.thirdPartyLinks.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.thirdPartyLinks.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 8: Modifications */}
-              <div id="modifications" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-lg text-primary">
-                    {sectionIcons.modifications}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.modifications.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.modifications.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 9: Governing Law */}
-              <div id="governingLaw" className="scroll-mt-20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-secondary/10 rounded-lg text-secondary">
-                    {sectionIcons.governingLaw}
-                  </div>
-                  <div>
-                    <h2 className="font-display-md text-on-background">
-                      {t('terms.sections.governingLaw.title')}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bg-surface-container-highest rounded-2xl p-8 border border-outline-variant space-y-4 font-body-md text-on-surface-variant">
-                  <p>{t('terms.sections.governingLaw.content')}</p>
-                </div>
-              </div>
-
-              {/* Section 10: Contact */}
-              <div id="contact" className="scroll-mt-20">
-                <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl p-8 border border-secondary/20 space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-secondary/20 rounded-lg text-secondary">
-                      {sectionIcons.contact}
-                    </div>
-                    <div>
-                      <h2 className="font-display-md text-on-background">
-                        {t('terms.sections.contact.title')}
-                      </h2>
-                    </div>
-                  </div>
-                  <p className="font-body-md text-on-surface-variant">
-                    {t('terms.sections.contact.description')}
-                  </p>
-                  <a 
-                    href="/contact" 
-                    className="inline-flex items-center gap-2 font-button px-6 py-3 bg-gradient-to-r from-secondary to-primary text-on-primary rounded-xl hover:shadow-[0_6px_20px_rgba(0,209,193,0.23)] transition-all"
-                  >
-                    {t('terms.sections.contact.cta')}
-                    <ChevronRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
+              {termsSections.map((section) => renderSection(section))}
             </div>
           </div>
         </div>

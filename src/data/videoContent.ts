@@ -1,5 +1,7 @@
 import type { Video } from '../types/data';
-import seminarVideo from '../assets/videos/A_professional_academic_semina.mp4';
+
+const seminarVideo = 'https://drive.google.com/file/d/1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv/view?usp=sharing';
+const seminarThumbnail = 'https://drive.google.com/thumbnail?id=1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv&sz=w1600';
 
 export const videoContent: Video[] = [
 	{
@@ -10,7 +12,7 @@ export const videoContent: Video[] = [
 		viewCount: 512,
 		speakers: ['TS. Nguyễn A', 'PGS. Trần B'],
 		videoUrl: seminarVideo,
-		thumbnailUrl: 'https://via.placeholder.com/1200x675.png?text=Digital+Safety+Seminar',
+		thumbnailUrl: seminarThumbnail,
 		chapters: [
 			{ time: '00:00:00', title: 'Giới thiệu' },
 			{ time: '00:05:12', title: 'Nguy cơ phổ biến' },

@@ -69,7 +69,7 @@ export default function Privacy() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h1 className="font-display-xl text-on-background leading-tight">
+                <h1 className="text-display-xl font-bold text-on-background leading-tight">
                   {t('privacy.title')}
                 </h1>
                 <p className="font-body-lg text-on-surface-variant leading-relaxed ">
