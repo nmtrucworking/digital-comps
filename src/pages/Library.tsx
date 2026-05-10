@@ -258,11 +258,11 @@ export default function Library() {
         : null}
 
       {/* Load More */}
-      <div className="flex justify-center mt-md">
+      {/* <div className="flex justify-center mt-md">
         <button className="border-2 border-primary text-primary font-button text-button px-8 py-3 rounded-full hover:bg-primary/5 transition-colors uppercase">
           {t('library.loadMore')}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
