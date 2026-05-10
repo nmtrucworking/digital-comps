@@ -2,7 +2,7 @@ import type { TeamMember } from '../types/data';
 import nmtAvt from '../assets/member-avts/nmt.jpg'
 // import ptptAvt from '../assets/member-avts/ptpt.jpg'
 // import lyAvt from '../assets/member-avts/ly.jpg'
-// import dctpAvt from '../assets/member-avts/dctp.jpg'
+import dctpAvt from '../assets/member-avts/dctp.jpg'
 
 
 export const teamMembers: TeamMember[] = [
@@ -27,7 +27,7 @@ export const teamMembers: TeamMember[] = [
 		fullNameKey: 'teamMembers.tm-003.fullName',
 		roleKey: 'teamMembers.tm-003.role',
 		bioKey: 'teamMembers.tm-003.bio',
-		avatarUrl: 'https://i.pravatar.cc/150?img=60',
+		avatarUrl: dctpAvt,
 		socialLinks: [{ label: 'Website', url: '#' }]
 	},
 	{
