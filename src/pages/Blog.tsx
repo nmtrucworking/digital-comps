@@ -2,6 +2,7 @@ import { Star, Lightbulb, Calendar, User, ArrowRight, Search, Mail } from 'lucid
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { blogPosts } from '../data/blogPosts';
+import blogHeroImage from '../assets/images/blog-hero_sec.png';
 
 // Calculate reading time based on word count
 const calculateReadingTime = (text?: string): number => {
@@ -72,7 +73,7 @@ export default function Blog() {
               <img 
                 alt="Student blogging" 
                 className="w-full h-full object-cover mix-blend-overlay opacity-80" 
-                src="../assets/images/blog-hero_sec.png" 
+                src={blogHeroImage}
               />
             </div>
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-tr from-primary-container to-primary-fixed rounded-full blur-xl opacity-60 mix-blend-multiply"></div>
