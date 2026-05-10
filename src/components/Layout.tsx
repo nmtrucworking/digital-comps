@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { MessageCircle, Globe, Share2, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import logo from '../assets/logo-light.png';
 
 export default function Layout() {
   const location = useLocation();
@@ -34,7 +35,9 @@ export default function Layout() {
       {/* TopNavBar */}
       <nav className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_8px_32px_0_rgba(0,209,193,0.1)] border-b border-white/10 dark:border-slate-800/50">
         <div className="flex justify-between items-center w-full px-6 md:px-20 py-4 max-w-[1440px] mx-auto">
-          <Link to="/" className="text-2xl font-black tracking-tighter text-[#00D1C1] font-['Space_Grotesk'] font-medium">
+          <Link to="/" 
+            className="text-2xl font-black tracking-tighter text-[#00D1C1] font-['Space_Grotesk'] font-medium flex flex items-center gap-2">
+            <img src={logo} alt="t('common.siteName')" className="w-10" />
             {t('common.siteName')}
           </Link>
           
