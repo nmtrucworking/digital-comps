@@ -13,7 +13,38 @@
     "blog": "Blog"
   },
   "footer": {
-    "description": "Trang bị kỹ năng số toàn diện cho sinh viên Việt Nam, hướng tới một thế hệ công dân mạng văn minh, an toàn và đầy bản lĩnh trong kỷ nguyên 4.0."
+    "description": "Trang bị kỹ năng số toàn diện cho sinh viên Việt Nam, hướng tới một thế hệ công dân mạng văn minh, an toàn và đầy bản lĩnh trong kỷ nguyên 4.0.",
+    "about": {
+      "links": {
+        "overview": "Giới thiệu chung",
+        "team": "Đội ngũ phát triển",
+        "mission": "Sứ mệnh & Tầm nhìn",
+        "news": "Tin tức & Sự kiện"
+      }
+    },
+    "topics": {
+      "title": "Chủ đề",
+      "items": {
+        "cyberSafety": "An toàn không gian mạng",
+        "searchSkills": "Kỹ năng tìm kiếm số",
+        "contentCreation": "Sáng tạo nội dung số",
+        "socialEthics": "Đạo đức mạng xã hội"
+      }
+    },
+    "newsletter": {
+      "title": "Đăng ký nhận tin",
+      "description": "Nhận những kiến thức và tài liệu mới nhất trực tiếp qua email.",
+      "placeholder": "Email của bạn",
+      "cta": "Đăng ký ngay"
+    },
+    "bottomBar": {
+      "copyright": "© {{year}} {{siteName}} - Dự án dành cho Sinh viên Việt Nam. Sáng tạo & Trách nhiệm.",
+      "links": {
+        "privacy": "Chính sách bảo mật",
+        "terms": "Điều khoản sử dụng",
+        "contact": "Liên hệ"
+      }
+    }
   },
   "home": {
     "hero": {

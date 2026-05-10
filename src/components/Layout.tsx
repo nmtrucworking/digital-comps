@@ -9,8 +9,13 @@ export default function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
 
+  const isPathActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
+  };
+
   const getLinkClass = (path: string) => {
-    const isActive = location.pathname === path;
+    const isActive = isPathActive(path);
     if (isActive) {
       return "text-[#00D1C1] border-b-2 border-[#00D1C1] pb-1 font-bold font-['Space_Grotesk'] font-medium active:scale-95 duration-150 ease-in-out";
     }
@@ -18,7 +23,7 @@ export default function Layout() {
   };
 
   const getMobileLinkClass = (path: string) => {
-    const isActive = location.pathname === path;
+    const isActive = isPathActive(path);
     return `block px-4 py-3 rounded-xl transition-all font-['Space_Grotesk'] font-medium text-lg ${
       isActive ? 'bg-[#00D1C1]/10 text-[#00D1C1] font-bold' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
     }`;
@@ -110,34 +115,38 @@ export default function Layout() {
             <div className="flex flex-col gap-base">
               <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('navigation.about')}</h4>
               <ul className="flex flex-col gap-3">
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">Giới thiệu chung</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">Đội ngũ phát triển</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">Sứ mệnh & Tầm nhìn</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/blog">Tin tức & Sự kiện</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.overview')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.team')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.mission')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/blog">{t('footer.about.links.news')}</Link></li>
               </ul>
             </div>
             
             {/* Column 3: Topics */}
             <div className="flex flex-col gap-base">
-              <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">Chủ đề</h4>
+              <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('footer.topics.title')}</h4>
               <ul className="flex flex-col gap-3">
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">An toàn không gian mạng</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">Kỹ năng tìm kiếm số</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">Sáng tạo nội dung số</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">Đạo đức mạng xã hội</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.cyberSafety')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.searchSkills')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.contentCreation')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.socialEthics')}</Link></li>
               </ul>
             </div>
             
             {/* Column 4: Newsletter */}
             <div className="flex flex-col gap-base">
-              <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">Đăng ký nhận tin</h4>
-              <p className="text-on-surface-variant font-body-md mb-2">Nhận những kiến thức và tài liệu mới nhất trực tiếp qua email.</p>
+              <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('footer.newsletter.title')}</h4>
+              <p className="text-on-surface-variant font-body-md mb-2">{t('footer.newsletter.description')}</p>
               <form className="flex flex-col gap-sm">
                 <div className="relative">
-                  <input className="w-full px-4 py-3 bg-surface-container-highest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Email của bạn" type="email" />
+                  <input
+                    className="w-full px-4 py-3 bg-surface-container-highest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    placeholder={t('footer.newsletter.placeholder')}
+                    type="email"
+                  />
                 </div>
                 <button className="bg-primary text-on-primary font-button px-6 py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-all" type="submit">
-                  Đăng ký ngay
+                  {t('footer.newsletter.cta')}
                 </button>
               </form>
             </div>
@@ -146,12 +155,12 @@ export default function Layout() {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
             <p className="text-on-surface-variant font-body-md text-sm italic">
-              © 2024 {t('common.siteName')} - Dự án dành cho Sinh viên Việt Nam. Sáng tạo & Trách nhiệm.
+              {t('footer.bottomBar.copyright', { year: new Date().getFullYear(), siteName: t('common.siteName') })}
             </p>
             <div className="flex gap-6 text-sm font-label-bold text-on-surface-variant">
-              <a className="hover:text-primary" href="#">Chính sách bảo mật</a>
-              <a className="hover:text-primary" href="#">Điều khoản sử dụng</a>
-              <a className="hover:text-primary" href="#">Liên hệ</a>
+              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.privacy')}</a>
+              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.terms')}</a>
+              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.contact')}</a>
             </div>
           </div>
         </div>

@@ -13,7 +13,38 @@
     "blog": "Blog"
   },
   "footer": {
-    "description": "Equip Vietnamese students with comprehensive digital skills, building a generation of civilized, safe, and responsible digital citizens in the 4.0 era."
+    "description": "Equip Vietnamese students with comprehensive digital skills, building a generation of civilized, safe, and responsible digital citizens in the 4.0 era.",
+    "about": {
+      "links": {
+        "overview": "Overview",
+        "team": "Development Team",
+        "mission": "Mission & Vision",
+        "news": "News & Events"
+      }
+    },
+    "topics": {
+      "title": "Topics",
+      "items": {
+        "cyberSafety": "Cyber Safety",
+        "searchSkills": "Digital Search Skills",
+        "contentCreation": "Digital Content Creation",
+        "socialEthics": "Social Media Ethics"
+      }
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Get the latest knowledge and resources delivered to your inbox.",
+      "placeholder": "Your email",
+      "cta": "Subscribe"
+    },
+    "bottomBar": {
+      "copyright": "© {{year}} {{siteName}} - A project for Vietnamese students. Creativity & Responsibility.",
+      "links": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "contact": "Contact"
+      }
+    }
   },
   "home": {
     "hero": {

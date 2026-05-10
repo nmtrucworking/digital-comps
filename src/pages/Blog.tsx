@@ -1,9 +1,9 @@
 import { Star, Lightbulb, Calendar, User, ArrowRight, Search, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
 import blogHeroImage from '../assets/images/blog-hero_sec.png';
-
 // Calculate reading time based on word count
 const calculateReadingTime = (text?: string): number => {
   if (!text) return 5;
@@ -94,7 +94,7 @@ export default function Blog() {
           {featuredPosts.length > 0 ? (
             featuredPosts.map((post, idx) => (
               idx === 0 ? (
-                <div key={post.id} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] cursor-pointer">
+                <Link key={post.id} to={`/blog/${post.id}`} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] cursor-pointer">
                   <img 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     src={post.thumbnail || 'https://via.placeholder.com/1200x675?text=Featured+Post'} 
@@ -126,9 +126,9 @@ export default function Blog() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ) : (
-                <div key={post.id} className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] hover:bg-surface-container transition-all cursor-pointer">
+                <Link key={post.id} to={`/blog/${post.id}`} className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] hover:bg-surface-container transition-all cursor-pointer">
                   {post.tags && post.tags.length > 0 && (
                     <div className="absolute top-md right-md">
                       <span className="inline-block px-2 py-1 bg-tertiary-container/20 text-tertiary rounded-full font-label-bold text-[10px] uppercase">
@@ -146,7 +146,7 @@ export default function Blog() {
                     <span className="font-label-bold text-xs text-on-surface">Bởi {post.author || 'Tác giả'}</span>
                     <span className="text-xs text-primary font-semibold">→</span>
                   </div>
-                </div>
+                </Link>
               )
             ))
           ) : (
@@ -199,7 +199,7 @@ export default function Blog() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-lg">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post) => (
-              <article key={post.id} className="h-full bg-surface-container-low rounded-xl overflow-hidden flex flex-col hover:shadow-[0_12px_48px_rgba(0,209,193,0.15)] transition-all duration-300 group border border-outline-variant/30 hover:border-primary/50">
+              <Link key={post.id} to={`/blog/${post.id}`} className="h-full bg-surface-container-low rounded-xl overflow-hidden flex flex-col hover:shadow-[0_12px_48px_rgba(0,209,193,0.15)] transition-all duration-300 group border border-outline-variant/30 hover:border-primary/50">
                 <div className="h-48 overflow-hidden relative bg-gradient-to-br from-surface-container to-surface">
                   {post.thumbnail ? (
                     <img 
@@ -241,7 +241,7 @@ export default function Blog() {
                     </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))
           ) : (
             <div className="col-span-1 md:col-span-2 lg:col-span-3 py-xl text-center">
