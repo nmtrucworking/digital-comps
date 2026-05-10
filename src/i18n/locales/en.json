@@ -201,5 +201,27 @@
         }
       ]
     }
+  },
+  "teamMembers": {
+    "tm-001": {
+      "fullName": "Nguyen Minh Truc",
+      "role": "Project Lead",
+      "bio": "A cybersecurity specialist with over 5 years of experience researching students' digital behavior."
+    },
+    "tm-002": {
+      "fullName": "Pham Thi Phuong Thanh",
+      "role": "Content Specialist",
+      "bio": "A design lecturer passionate about spreading creative and responsible online culture."
+    },
+    "tm-003": {
+      "fullName": "Diep Cao Tiến Phúc",
+      "role": "Software Engineer",
+      "bio": "Responsible for system optimization and building the best interactive digital experiences."
+    },
+    "tm-004": {
+      "fullName": "Ly Thi Kim Giang",
+      "role": "Software Engineer",
+      "bio": "Responsible for system optimization and building the best interactive digital experiences."
+    }
   }
 }

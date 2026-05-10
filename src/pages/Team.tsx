@@ -1,5 +1,8 @@
 import { Target, CheckCircle, Lightbulb, ArrowRight, BarChart, Users, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { teamMembers } from '../data/teamMembers';
+import heroImg from '../assets/images/team-hero_sec.png';
 
 export default function Team() {
   const { t } = useTranslation();
@@ -81,12 +84,44 @@ export default function Team() {
         </div>
       </section>
 
+      <section className="mb-xl">
+        <div className="text-center mb-lg">
+          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Đội ngũ phát triển</h2>
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Những người đồng hành cùng bạn trên chặng đường xây dựng một cộng đồng số vững mạnh và an toàn.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          {teamMembers.map((member) => (
+            <Link
+              key={member.id}
+              to={`/team/${member.id}`}
+              className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
+            >
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
+                <img src={member.avatarUrl} alt="" className="w-full h-full object-cover" />
+              </div>
+              <h3 className="font-headline-md text-xl font-bold text-on-surface">
+                {member.fullNameKey ? t(member.fullNameKey) : member.fullName}
+              </h3>
+              <p className="font-label-bold text-sm text-primary mb-3">
+                {member.roleKey ? t(member.roleKey) : member.role}
+              </p>
+              <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
+                {member.bioKey ? t(member.bioKey) : member.bio}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Illustration Image */}
       <section className="rounded-xl overflow-hidden shadow-lg h-96 relative group">
         <img 
           alt="Students working together" 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuACt_Rhuc_5JqxpyH3IHplPkXXqDYZO2mOakllLeUoO7NAHNFygTcB5DCG6dVtVUsgtBfqpGibDP3xD7PUnoNYySg-zCeGfq4fOpugmACquT04tW1ftpOFqPzkXbiCQU6vZjlU8MNE_wLMwSMpOgXAgZwo382Ccf9Yafj7XeDqm9KE-2jwrNxQQegr7fpuG2byLA1FjNKjekAgt2Kpwf96oNWD1cAA46uW-j4_RS3KcWLaPL1hWdPUJDYZH9iKqIYG8Hc5QUTzBRg" 
+          src={heroImg}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 to-transparent flex items-end p-8">
           <p className="font-headline-md text-headline-md text-on-primary">

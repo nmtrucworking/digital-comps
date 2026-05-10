@@ -201,5 +201,27 @@
         }
       ]
     }
+  },
+  "teamMembers": {
+    "tm-001": {
+      "fullName": "Nguyễn Minh Trúc",
+      "role": "Trưởng dự án",
+      "bio": "Chuyên gia an ninh mạng với hơn 5 năm kinh nghiệm nghiên cứu hành vi số của sinh viên."
+    },
+    "tm-002": {
+      "fullName": "Phạm Thị Phương Thanh",
+      "role": "Chuyên gia nội dung",
+      "bio": "Giảng viên thiết kế với đam mê lan tỏa văn hóa ứng xử trực tuyến một cách sáng tạo."
+    },
+    "tm-003": {
+      "fullName": "Diệp Cao Tiến Phúc",
+      "role": "Kỹ sư phần mềm",
+      "bio": "Đảm nhiệm việc tối ưu hóa hệ thống và tạo ra những trải nghiệm tương tác số tốt nhất."
+    },
+    "tm-004": {
+      "fullName": "Lý Thị Kim Giang",
+      "role": "Kỹ sư phần mềm",
+      "bio": "Đảm nhiệm việc tối ưu hóa hệ thống và tạo ra những trải nghiệm tương tác số tốt nhất."
+    }
   }
 }

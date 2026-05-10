@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import Globe from '../components/Globe';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { teamMembers } from '../data/teamMembers';
 
 export default function Home() {
   const { t } = useTranslation();
+  const roleColorClassByIndex = ['text-primary', 'text-tertiary', 'text-secondary'];
 
   return (
     <>
@@ -79,60 +81,34 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mt-12">
-          {/* Member 1 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
-          >
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
-              <img src="https://i.pravatar.cc/150?img=11" alt="Thành viên 1" className="w-full h-full object-cover" />
-            </div>
-            <h3 className="font-headline-md text-xl font-bold text-on-surface">Nguyễn Văn A</h3>
-            <p className="font-label-bold text-sm text-primary mb-3">Trưởng dự án</p>
-            <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
-              Chuyên gia an ninh mạng với hơn 5 năm kinh nghiệm nghiên cứu hành vi số của sinh viên.
-            </p>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mt-12 cursor-pointer">
+          {teamMembers.map((member, idx) => (
+            (() => {
+              const fullName = member.fullNameKey ? t(member.fullNameKey) : (member.fullName ?? '');
+              const role = member.roleKey ? t(member.roleKey) : (member.role ?? '');
+              const bio = member.bioKey ? t(member.bioKey) : (member.bio ?? '');
 
-          {/* Member 2 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
-          >
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
-              <img src="https://i.pravatar.cc/150?img=32" alt="Thành viên 2" className="w-full h-full object-cover" />
-            </div>
-            <h3 className="font-headline-md text-xl font-bold text-on-surface">Trần Thị B</h3>
-            <p className="font-label-bold text-sm text-tertiary mb-3">Chuyên gia nội dung</p>
-            <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
-              Giảng viên thiết kế với đam mê lan tỏa văn hóa ứng xử trực tuyến một cách sáng tạo.
-            </p>
-          </motion.div>
-
-          {/* Member 3 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
-          >
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
-              <img src="https://i.pravatar.cc/150?img=60" alt="Thành viên 3" className="w-full h-full object-cover" />
-            </div>
-            <h3 className="font-headline-md text-xl font-bold text-on-surface">Lê Hoàng C</h3>
-            <p className="font-label-bold text-sm text-secondary mb-3">Kỹ sư phần mềm</p>
-            <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
-              Đảm nhiệm việc tối ưu hóa hệ thống và tạo ra những trải nghiệm tương tác số tốt nhất.
-            </p>
-          </motion.div>
+              return (
+            <motion.div 
+              key={member.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
+              className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
+            >
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
+                <img src={member.avatarUrl} alt={fullName} className="w-full h-full object-cover" />
+              </div>
+              <h3 className="font-headline-md text-xl font-bold text-on-surface">{fullName}</h3>
+              <p className={`font-label-bold text-sm mb-3 ${roleColorClassByIndex[idx % roleColorClassByIndex.length]}`}>{role}</p>
+              <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
+                {bio}
+              </p>
+            </motion.div>
+              );
+            })()
+          ))}
         </div>
       </section>
     </>

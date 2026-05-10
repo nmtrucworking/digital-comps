@@ -38,9 +38,13 @@ export interface BlogPost {
 
 export interface TeamMember {
   id: string;
-  fullName: string;
+  fullName?: string;
+  fullNameKey?: string;
   role?: string;
+  roleKey?: string;
   affiliation?: string;
+  bio?: string;
+  bioKey?: string;
   avatarUrl?: string;
   socialLinks?: { label: string; url: string }[];
 }

@@ -1,20 +1,41 @@
 import type { TeamMember } from '../types/data';
+import nmtAvt from '../assets/member-avts/nmt.jpg'
+// import ptptAvt from '../assets/member-avts/ptpt.jpg'
+// import lyAvt from '../assets/member-avts/ly.jpg'
+// import dctpAvt from '../assets/member-avts/dctp.jpg'
+
 
 export const teamMembers: TeamMember[] = [
 	{
 		id: 'tm-001',
-		fullName: 'Nguyễn Văn A',
-		role: 'Project Lead',
-		affiliation: 'Đại học ABC',
-		avatarUrl: 'https://via.placeholder.com/256.png?text=NV_A',
-		socialLinks: [{ label: 'LinkedIn', url: '#' }]
+		fullNameKey: 'teamMembers.tm-001.fullName',
+		roleKey: 'teamMembers.tm-001.role',
+		bioKey: 'teamMembers.tm-001.bio',
+		avatarUrl: nmtAvt,
+		socialLinks: [{ label: 'GitHub', url: 'https://github.com/nmtrucworking' }]
 	},
 	{
 		id: 'tm-002',
-		fullName: 'Trần Thị B',
-		role: 'Frontend',
-		affiliation: 'Đại học XYZ',
-		avatarUrl: 'https://via.placeholder.com/256.png?text=TT_B',
+		fullNameKey: 'teamMembers.tm-002.fullName',
+		roleKey: 'teamMembers.tm-002.role',
+		bioKey: 'teamMembers.tm-002.bio',
+		avatarUrl: 'https://i.pravatar.cc/150?img=32',
 		socialLinks: [{ label: 'GitHub', url: '#' }]
+	},
+	{
+		id: 'tm-003',
+		fullNameKey: 'teamMembers.tm-003.fullName',
+		roleKey: 'teamMembers.tm-003.role',
+		bioKey: 'teamMembers.tm-003.bio',
+		avatarUrl: 'https://i.pravatar.cc/150?img=60',
+		socialLinks: [{ label: 'Website', url: '#' }]
+	},
+	{
+		id: 'tm-004',
+		fullNameKey: 'teamMembers.tm-004.fullName',
+		roleKey: 'teamMembers.tm-004.role',
+		bioKey: 'teamMembers.tm-004.bio',
+		avatarUrl: 'https://i.pravatar.cc/150?img=60',
+		socialLinks: [{ label: 'Website', url: '#' }]
 	}
 ];
