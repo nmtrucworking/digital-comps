@@ -1,10 +1,45 @@
-import { Star, Lightbulb, Brain } from 'lucide-react';
+import { Star, Lightbulb, Calendar, User, ArrowRight, Search, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+import { blogPosts } from '../data/blogPosts';
+
+// Calculate reading time based on word count
+const calculateReadingTime = (text?: string): number => {
+  if (!text) return 5;
+  const wordsPerMinute = 200;
+  const wordCount = text.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+};
+
+// Format date in Vietnamese
+const formatDate = (dateString?: string): string => {
+  if (!dateString) return 'Ngày không xác định';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' });
+};
 
 export default function Blog() {
   const { t } = useTranslation();
+  const [selectedTag, setSelectedTag] = useState<string>('Tất cả');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Get all unique tags
+  const allTags = ['Tất cả', ...new Set(blogPosts.flatMap(post => post.tags || []))];
+
+  // Filter posts
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesTag = selectedTag === 'Tất cả' || post.tags?.includes(selectedTag);
+    const matchesSearch = 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.summary?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.author?.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTag && matchesSearch;
+  });
+
+  const featuredPosts = filteredPosts.slice(0, 3);
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b from-background to-surface-dim">
       {/* Hero Section */}
       <section className="w-full px-8 md:px-20 py-xl max-w-container-max mx-auto relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-surface-container-high via-surface to-background -z-10 rounded-xl opacity-50 blur-3xl"></div>
@@ -17,7 +52,7 @@ export default function Blog() {
                 </svg>
               </span>
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            <p className="font-body-lg text-body-lg text-on-surface-variant">
               {t('blog.hero.description')}
             </p>
             <div className="flex flex-wrap gap-sm pt-sm">
@@ -37,170 +72,224 @@ export default function Blog() {
               <img 
                 alt="Student blogging" 
                 className="w-full h-full object-cover mix-blend-overlay opacity-80" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_EqhZuNhTxn4wag6D0ppYZi0ZIhc7LUNMbMXwL4pESxrABzyrblUCgQQ7qi-dny3BcLfkc08vSDA40ZYO_g5SlY38qTCZBnnEeqS0MgdZQA_FLXGW0wdlVB0SkaDQgYjQCqze0jH9rpuhYH6LbUT704sdlLzoZCT0S6i6N4W9R4nBUwwnSraQHSFUKILvzZYqYCOmtV4gxil7LRW-K6lWNC7b6U4V5uDFzAWFjm2IX9906tLtUrQzCQ64HThKKSvB8m4bqTSVxg" 
+                src="../assets/images/blog-hero_sec.png" 
               />
             </div>
-            {/* 3D Decorative elements simulated with CSS */}
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-tr from-primary-container to-primary-fixed rounded-full blur-xl opacity-60 mix-blend-multiply"></div>
             <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-tr from-tertiary to-tertiary-container rounded-full blur-2xl opacity-40 mix-blend-multiply"></div>
           </div>
         </div>
       </section>
 
-      {/* Featured Stories (Bento Grid) */}
+      {/* Featured Stories */}
       <section className="w-full px-8 md:px-20 py-lg max-w-container-max mx-auto space-y-md">
         <div className="flex items-center gap-sm mb-lg">
           <div className="p-3 bg-surface-container-high rounded-lg text-primary-container shadow-sm">
             <Star className="w-6 h-6 fill-current" />
           </div>
-          <h2 className="font-headline-lg text-headline-lg text-on-background">{t('blog.featured.title')}</h2>
+          <h2 className="font-headline-lg text-headline-lg text-on-background">Bài viết nổi bật</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-auto md:auto-rows-[300px]">
-          {/* Render featured stories from i18n data */}
-          {(t('blog.featured.stories', { returnObjects: true }) as any[]).map((story: any, idx: number) => (
-            idx === 0 ? (
-              // Large Feature Card for first story
-              <div key={idx} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:scale-[1.01]">
-                <img 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBol_F-vDsMVj43OmIR72PIyZHYhFs9gfiza0pNn8fE1dBnIzBivS0SWKgNUopj06LJ_2Z84J3_migenfDZ2JDkyhLuuhP4nG_B4a6cHpsPuWT3Ycsup7nlJDZXW0sBwHFt3I1EJk8drgdhzH-ESVGVIhnG6uJKYoPZCL6q95Vw-QgXvP5UmGawgyhySXdonhwp567_4_JKikY4qctbnR33ANNZtmQbr8csbLivR-iR9prtWXwhzkrHSn9si57z7OumL_vOwAKfiw" 
-                  alt="Minh Trang"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-lg w-full md:w-3/4">
-                  <span className="inline-block px-3 py-1 mb-sm bg-primary-container text-on-primary-container rounded-full font-label-bold text-xs uppercase tracking-wider">{story.tag}</span>
-                  <h3 className="font-headline-lg text-headline-md text-on-primary mb-sm leading-tight group-hover:text-primary-fixed transition-colors">
-                    {story.title}
-                  </h3>
-                  <p className="font-body-md text-body-md text-surface-container-highest mb-md line-clamp-2">
-                    {story.description}
-                  </p>
-                  <div className="flex items-center gap-sm">
-                    <div className="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-primary-container">
-                      <img 
-                        className="w-full h-full object-cover" 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgV0cvhAQ2sC4Qi2Z-jGnHJkbA4sZM_clxDp3Y2vhdpDConmLyQ4mcg4ODI7OscIu_vMyGXfOlvK7jcToejAj8ZwgH8QTyMhI2mNxVRntKJYpH8lS526XVuini9PavybslKCsFj2nLHoQ5LLRFVzKac2hfk68hYRQ54qL4y3VgXXlYPpP_gLrg5lBnSO4U6-ATRUATIOHYbr6nAchURFk2uNJ3zsAaz0ICUFT8cMgWBqb64__vnP8w0MuZNlAFaE1wqDj_tVW0Dw" 
-                        alt="Portrait"
-                      />
+          {featuredPosts.length > 0 ? (
+            featuredPosts.map((post, idx) => (
+              idx === 0 ? (
+                <div key={post.id} className="col-span-1 md:col-span-8 md:row-span-2 h-[400px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] cursor-pointer">
+                  <img 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    src={post.thumbnail || 'https://via.placeholder.com/1200x675?text=Featured+Post'} 
+                    alt={post.title}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-on-background/95 via-on-background/50 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 p-lg w-full">
+                    <div className="flex flex-wrap gap-xs mb-md">
+                      {post.tags?.slice(0, 2).map((tag, i) => (
+                        <span key={i} className="inline-block px-3 py-1 bg-primary-container text-on-primary-container rounded-full font-label-bold text-xs uppercase tracking-wider">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div>
-                      <p className="font-label-bold text-label-bold text-on-primary">{story.author}</p>
-                      <p className="text-xs text-surface-dim">{story.university}</p>
+                    <h3 className="font-headline-lg text-2xl md:text-3xl text-on-primary mb-sm leading-tight font-bold">
+                      {post.title}
+                    </h3>
+                    <p className="font-body-md text-body-md text-surface-container-highest mb-md line-clamp-2">
+                      {post.summary}
+                    </p>
+                    <div className="flex items-center gap-md">
+                      <div className="flex items-center gap-sm">
+                        <User className="w-4 h-4 text-surface-dim" />
+                        <span className="font-label-bold text-sm text-on-primary">{post.author || 'Tác giả'}</span>
+                      </div>
+                      <div className="flex items-center gap-sm">
+                        <Calendar className="w-4 h-4 text-surface-dim" />
+                        <span className="font-label-bold text-sm text-on-primary">{formatDate(post.publishedDate)}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              // Small Feature Cards for subsequent stories
-              <div key={idx} className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:bg-surface-container transition-colors">
-                <div className="absolute top-md right-md">
-                  {idx === 1 && <Lightbulb className="w-8 h-8 text-tertiary-container fill-current" />}
+              ) : (
+                <div key={post.id} className="col-span-1 md:col-span-4 h-[250px] md:h-full relative group rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] bg-surface-container-low border border-outline-variant/30 flex flex-col justify-end p-md hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] hover:bg-surface-container transition-all cursor-pointer">
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="absolute top-md right-md">
+                      <span className="inline-block px-2 py-1 bg-tertiary-container/20 text-tertiary rounded-full font-label-bold text-[10px] uppercase">
+                        {post.tags[0]}
+                      </span>
+                    </div>
+                  )}
+                  <h4 className="font-headline-md text-lg font-bold text-on-background mb-xs leading-snug group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h4>
+                  <p className="font-body-md text-sm text-on-surface-variant mb-md line-clamp-2">
+                    {post.summary}
+                  </p>
+                  <div className="flex items-center justify-between pt-md border-t border-outline-variant/20">
+                    <span className="font-label-bold text-xs text-on-surface">Bởi {post.author || 'Tác giả'}</span>
+                    <span className="text-xs text-primary font-semibold">→</span>
+                  </div>
                 </div>
-                <span className={`inline-block px-3 py-1 mb-xs rounded-full font-label-bold text-[10px] uppercase w-fit ${
-                  idx === 1 ? 'bg-tertiary-container/20 text-tertiary' : ''
-                }`}>{story.tag}</span>
-                <h4 className="font-headline-md text-xl font-bold text-on-background mb-xs leading-snug">
-                  {story.title}
-                </h4>
-                <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2">
-                  {story.description}
-                </p>
-                <p className="font-label-bold text-xs text-primary">Bởi {story.author} - {story.university}</p>
-              </div>
-            )
-          ))}
+              )
+            ))
+          ) : (
+            <div className="col-span-1 md:col-span-12 py-lg text-center">
+              <p className="text-on-surface-variant">Không có bài viết nào.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* All Posts Grid */}
+      {/* All Posts */}
       <section className="w-full px-8 md:px-20 py-xl max-w-container-max mx-auto">
-        <div className="flex justify-between items-end mb-lg border-b border-outline-variant/30 pb-md">
-          <h2 className="font-headline-md text-headline-md text-on-background">Bài viết mới nhất</h2>
-          {/* Category Filter Pills */}
-          <div className="hidden md:flex gap-base">
-            <button className="px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-bold text-sm shadow-sm transition-all">Tất cả</button>
-            <button className="px-4 py-2 bg-surface text-on-surface border border-outline-variant rounded-full font-label-bold text-sm hover:bg-surface-container transition-all">An toàn mạng</button>
-            <button className="px-4 py-2 bg-surface text-on-surface border border-outline-variant rounded-full font-label-bold text-sm hover:bg-surface-container transition-all">Sáng tạo nội dung</button>
-            <button className="px-4 py-2 bg-surface text-on-surface border border-outline-variant rounded-full font-label-bold text-sm hover:bg-surface-container transition-all">Cân bằng cuộc sống số</button>
+        <div className="mb-lg space-y-md">
+          <div className="flex justify-between items-center">
+            <h2 className="font-headline-lg text-2xl md:text-3xl text-on-background font-bold">Bài viết mới nhất</h2>
+            <span className="text-sm text-on-surface-variant">{filteredPosts.length} bài viết</span>
+          </div>
+          
+          {/* Search */}
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-on-surface-variant" />
+            <input
+              type="text"
+              placeholder="Tìm kiếm bài viết..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-lg border border-outline-variant bg-surface-container placeholder-on-surface-variant text-on-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            />
+          </div>
+
+          {/* Filters */}
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                className={`px-4 py-2 rounded-full font-label-bold text-sm transition-all duration-200 ${
+                  selectedTag === tag
+                    ? 'bg-primary-container text-on-primary-container shadow-md'
+                    : 'bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-          {/* Post Card 1 */}
-          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZL4Htvgyu9FUkeV_m2jEep3ocZEpjdY8JOfuca4jPhSPJ44cxHPynuPnPN-l_LYM-g3jSicJidqQsePXRW2Nev6FOZmqmOIyh7xokTw20Me0fK_p6jnvSYk6J-P3QKaEjrKjWTS1GIMRetSJRPjV8VHcW0PELGBaLQ1DN3dK_LH8OH5olSuKN4gssKCqDoIok_7Ln9HbHGT-ls5qZQYsO86Z_h7k6WDc1nlj5j6XAwh3lUI71XoYghmEPqBOIb_QtW2ews07Vcg" 
-                alt="Post 1"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary-container rounded-full font-label-bold text-xs uppercase shadow-sm">Xu hướng</span>
-              </div>
-            </div>
-            <div className="p-md flex-1 flex flex-col">
-              <h3 className="font-headline-md text-xl font-bold text-on-background mb-2 group-hover:text-primary transition-colors">Xây dựng Personal Brand trên LinkedIn cho sinh viên</h3>
-              <p className="font-body-md text-sm text-on-surface-variant mb-4 flex-1">Bắt đầu từ đâu khi bạn chưa có kinh nghiệm làm việc thực tế? Hướng dẫn từng bước từ profile đến networking.</p>
-              <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20 mt-auto">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold text-xs">H</div>
-                  <span className="font-label-bold text-xs text-on-surface">Hoàng Nam</span>
-                </div>
-                <span className="text-xs text-outline font-body-md">5 phút đọc</span>
-              </div>
-            </div>
-          </article>
-          
-          {/* Post Card 2 */}
-          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB45uEoIMZMB7-ZTjUuf7lbCWE5_Pk7W6vsa1yOPd2RLTkkgiVBsuMYUTXCyOoSn4_SqihQ9FTCZcJvuPgAx9x0fy7suBVKwxOgkx27jSBFj3mi9rSvKIQYrSNmp1kgb3MW6WgouCoB-IJ3UbFF6FF6SLZ-OovTxOa6W2ruKJckariBMAKUi2P2SITLEnRbsAeJmmaicef7mcerkhdlG6M7kyDJLKfzSAmW9WFgp329sImMGfO8J3Momdnu1Oceg6p5SRUSpWhcWA" 
-                alt="Post 2"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-error rounded-full font-label-bold text-xs uppercase shadow-sm">An toàn mạng</span>
-              </div>
-            </div>
-            <div className="p-md flex-1 flex flex-col">
-              <h3 className="font-headline-md text-xl font-bold text-on-background mb-2 group-hover:text-primary transition-colors">Phân biệt Phishing Email tinh vi trong môi trường học thuật</h3>
-              <p className="font-body-md text-sm text-on-surface-variant mb-4 flex-1">Những mánh khóe lừa đảo nhắm vào sinh viên mùa đóng học phí và cách nhận biết bằng trực giác số.</p>
-              <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20 mt-auto">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs">T</div>
-                  <span className="font-label-bold text-xs text-on-surface">Thanh Tú</span>
-                </div>
-                <span className="text-xs text-outline font-body-md">7 phút đọc</span>
-              </div>
-            </div>
-          </article>
 
-          {/* Post Card 3 */}
-          <article className="h-full bg-white/40 backdrop-blur-md border border-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all duration-300 group">
-            <div className="h-48 overflow-hidden relative bg-surface-container flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-tertiary-container/30 to-surface opacity-50"></div>
-              <Brain className="w-16 h-16 text-tertiary relative z-10" />
-              <div className="absolute top-4 left-4 z-20">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-tertiary rounded-full font-label-bold text-xs uppercase shadow-sm">Cảm nhận</span>
-              </div>
-            </div>
-            <div className="p-md flex-1 flex flex-col">
-              <h3 className="font-headline-md text-xl font-bold text-on-background mb-2 group-hover:text-primary transition-colors">Nỗi sợ bị bỏ lỡ (FOMO) và áp lực 'phải năng suất'</h3>
-              <p className="font-body-md text-sm text-on-surface-variant mb-4 flex-1">Góc nhìn chân thật từ một sinh viên năm cuối về việc học cách nói 'không' với những khóa học online không cần thiết.</p>
-              <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20 mt-auto">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">L</div>
-                  <span className="font-label-bold text-xs text-on-surface">Linh Chi</span>
+        {/* Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-lg">
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => (
+              <article key={post.id} className="h-full bg-surface-container-low rounded-xl overflow-hidden flex flex-col hover:shadow-[0_12px_48px_rgba(0,209,193,0.15)] transition-all duration-300 group border border-outline-variant/30 hover:border-primary/50">
+                <div className="h-48 overflow-hidden relative bg-gradient-to-br from-surface-container to-surface">
+                  {post.thumbnail ? (
+                    <img 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                      src={post.thumbnail} 
+                      alt={post.title}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-surface-container-high">
+                      <Lightbulb className="w-12 h-12 text-surface-dim opacity-50" />
+                    </div>
+                  )}
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1.5 bg-primary-container/90 backdrop-blur-sm text-on-primary-container rounded-full font-label-bold text-xs uppercase shadow-sm">
+                        {post.tags[0]}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <span className="text-xs text-outline font-body-md">4 phút đọc</span>
+
+                <div className="p-md flex-1 flex flex-col">
+                  <h3 className="font-headline-md text-lg font-bold text-on-background mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="font-body-md text-sm text-on-surface-variant mb-4 flex-1 line-clamp-3">
+                    {post.summary}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20 mt-auto">
+                    <div className="flex flex-col gap-1">
+                      <p className="font-label-bold text-xs text-on-surface flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        {post.author || 'Tác giả'}
+                      </p>
+                      <p className="text-xs text-on-surface-variant">{formatDate(post.publishedDate)}</p>
+                    </div>
+                    <span className="text-xs font-semibold text-primary-container bg-primary-container/10 px-2 py-1 rounded-full">
+                      {calculateReadingTime(post.summary)} phút
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className="col-span-1 md:col-span-2 lg:col-span-3 py-xl text-center">
+              <div className="flex flex-col items-center gap-md">
+                <Search className="w-12 h-12 text-on-surface-variant opacity-30" />
+                <div>
+                  <p className="text-on-surface-variant font-body-md">Không tìm thấy bài viết</p>
+                  <p className="text-sm text-on-surface-variant/70">Hãy thử tìm kiếm hoặc lọc khác</p>
+                </div>
               </div>
             </div>
-          </article>
+          )}
         </div>
-        <div className="mt-lg flex justify-center">
-          <button className="px-6 py-3 border-2 border-primary-container text-primary-container rounded-lg font-button uppercase hover:bg-primary-container/5 transition-colors">
-            Tải thêm bài viết
-          </button>
+
+        {/* Load More */}
+        {filteredPosts.length > 0 && filteredPosts.length < blogPosts.length && (
+          <div className="flex justify-center">
+            <button className="px-8 py-3 border-2 border-primary-container text-primary-container rounded-lg font-button uppercase hover:bg-primary-container/10 transition-all duration-200 flex items-center gap-2">
+              Tải thêm bài viết
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+      </section>
+
+      {/* Newsletter */}
+      <section className="w-full px-8 md:px-20 py-xl max-w-container-max mx-auto">
+        <div className="bg-gradient-to-r from-primary-container/20 to-tertiary-container/20 border border-primary-container/30 rounded-2xl p-lg md:p-xl backdrop-blur-sm">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-md">
+            <div className="flex-1">
+              <h3 className="font-headline-md text-2xl font-bold text-on-background mb-sm">
+                Cập nhật bài viết mới
+              </h3>
+              <p className="font-body-md text-on-surface-variant">
+                Đăng ký nhận thông báo khi có bài viết mới về kỹ năng số và an toàn mạng.
+              </p>
+            </div>
+            <div className="w-full md:w-auto flex gap-xs">
+              <input
+                type="email"
+                placeholder="Nhập email của bạn..."
+                className="px-4 py-3 rounded-lg bg-surface-container border border-outline-variant text-on-background placeholder-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              />
+              <button className="px-6 py-3 bg-primary-container text-on-primary-container rounded-lg font-button transition-all hover:shadow-md flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                <span className="hidden sm:inline">Đăng ký</span>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

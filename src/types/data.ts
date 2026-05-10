@@ -11,6 +11,7 @@ export interface Video {
   duration?: string; // human readable
   viewCount?: number;
   speakers?: string[];
+  videoUrl?: string;
   thumbnailUrl?: string;
   chapters?: VideoChapter[];
   resources?: { title: string; url: string }[];

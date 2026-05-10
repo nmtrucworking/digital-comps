@@ -35,7 +35,20 @@ export default function Library() {
         {/* Large video (first videoContent item) */}
         {videoContent[0] && (
           <div key={videoContent[0].id} className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative rounded-xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,209,193,0.1)] group cursor-pointer bg-white/20 backdrop-blur-2xl border border-white/50">
-            <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src={videoContent[0].thumbnailUrl} alt={videoContent[0].title} />
+            {videoContent[0].videoUrl ? (
+              <video
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src={videoContent[0].videoUrl}
+                poster={videoContent[0].thumbnailUrl}
+                muted
+                loop
+                autoPlay
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src={videoContent[0].thumbnailUrl} alt={videoContent[0].title} />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,209,193,0.5)]">
                 <Play className="w-8 h-8 text-white fill-current" />

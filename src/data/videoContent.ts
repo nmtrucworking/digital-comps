@@ -1,4 +1,5 @@
 import type { Video } from '../types/data';
+import seminarVideo from '../assets/videos/A_professional_academic_semina.mp4';
 
 export const videoContent: Video[] = [
 	{
@@ -8,7 +9,8 @@ export const videoContent: Video[] = [
 		duration: '45:12',
 		viewCount: 512,
 		speakers: ['TS. Nguyễn A', 'PGS. Trần B'],
-		thumbnailUrl: 'https://via.placeholder.com/1200x720.png?text=Video+1',
+		videoUrl: seminarVideo,
+		thumbnailUrl: 'https://via.placeholder.com/1200x675.png?text=Digital+Safety+Seminar',
 		chapters: [
 			{ time: '00:00:00', title: 'Giới thiệu' },
 			{ time: '00:05:12', title: 'Nguy cơ phổ biến' },
