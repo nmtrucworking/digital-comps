@@ -180,6 +180,164 @@
     ],
     "loadMore": "Tải thêm nội dung"
   },
+  "contact": {
+    "title": "Liên hệ chúng tôi",
+    "description": "Có câu hỏi hoặc phản hồi về Công dân số? Chúng tôi rất muốn nghe từ bạn. Gửi cho chúng tôi một tin nhắn và chúng tôi sẽ trả lời sớm nhất có thể.",
+    "info": {
+      "email": {
+        "title": "Email",
+        "value": "hello@digitalcitizen.edu.vn"
+      },
+      "phone": {
+        "title": "Điện thoại",
+        "value": "+84 (0) 24 1234 5678"
+      },
+      "location": {
+        "title": "Địa điểm",
+        "value": "Phường An Phú Đông, TP. Hồ Chí Minh, Việt Nam"
+      },
+      "responseTime": {
+        "title": "Thời gian phản hồi",
+        "value": "Chúng tôi thường phản hồi trong vòng 24-48 giờ làm việc."
+      }
+    },
+    "form": {
+      "title": "Gửi cho chúng tôi một tin nhắn",
+      "labels": {
+        "name": "Họ và Tên",
+        "email": "Địa chỉ Email",
+        "subject": "Tiêu đề",
+        "message": "Tin nhắn"
+      },
+      "placeholders": {
+        "name": "Nguyễn Văn A",
+        "email": "nguyenvana@example.com",
+        "subject": "Chúng tôi có thể giúp gì cho bạn?",
+        "message": "Vui lòng cho chúng tôi biết thêm chi tiết..."
+      },
+      "support": {
+        "title": "Chúng tôi hỗ trợ những gì?",
+        "items": [
+          "Câu hỏi về dự án và nội dung",
+          "Hỗ trợ kỹ thuật khi sử dụng nền tảng",
+          "Phản hồi và đề xuất cải tiến",
+          "Cơ hội hợp tác và truyền thông"
+        ]
+      },
+      "submit": "Gửi Tin nhắn",
+      "sending": "Đang gửi...",
+      "successMessage": "Cảm ơn bạn đã gửi tin nhắn! Chúng tôi sẽ sớm trả lời bạn.",
+      "note": "Tất cả các trường đều được yêu cầu. Chúng tôi tôn trọng quyền riêng tư của bạn và không bao giờ chia sẻ thông tin của bạn."
+    }
+  },
+  "terms": {
+    "title": "Điều khoản sử dụng",
+    "lastUpdated": "Cập nhật lần cuối",
+    "introDescription": "Chào mừng bạn đến với Công dân số. Vui lòng đọc kỹ các điều khoản sử dụng này trước khi truy cập hoặc sử dụng trang web của chúng tôi. Bằng cách truy cập và sử dụng trang web này, bạn chấp nhận và đồng ý bị ràng buộc bởi các điều khoản và quy định của thỏa thuận này.",
+    "sections": {
+      "acceptance": {
+        "title": "1. Chấp nhận Điều khoản",
+        "content": "Bằng cách truy cập trang web này, bạn đồng ý bị ràng buộc bởi các Điều khoản và Điều kiện sử dụng trang web này, tất cả các luật và quy định hiện hành, và đồng ý rằng bạn chịu trách nhiệm tuân thủ bất kỳ luật địa phương nào. Nếu bạn không đồng ý với bất kỳ điều khoản nào, bạn bị cấm truy cập hoặc sử dụng trang web này."
+      },
+      "useLicense": {
+        "title": "2. Giấy phép sử dụng",
+        "content1": "Được phép tạm thời tải xuống một bản sao của các tài liệu (thông tin hoặc phần mềm) trên trang web Công dân số cho mục đích xem tạm thời, không thương mại chỉ dành cho cá nhân. Đây là cấp phép, không phải chuyển giao quyền sở hữu, và theo giấy phép này bạn không được:",
+        "content2": "Các tài liệu trên trang web Công dân số được cung cấp trên cơ sở 'như vậy'. Công dân số không cấp bất kỳ bảo hành nào, rõ ràng hoặc ngầm, và từ đây từ chối và phủ nhận tất cả các bảo hành khác bao gồm, nhưng không giới hạn, bảo hành ngầm hoặc điều kiện về khả năng bán hàng, phù hợp cho một mục đích cụ thể, hoặc không xâm phạm quyền sở hữu trí tuệ hoặc các quyền khác.",
+        "restrictions": "Cách sử dụng bị hạn chế:",
+        "bullet1": "Sửa đổi hoặc in bất kỳ tài liệu nào trên trang web",
+        "bullet2": "Sử dụng bất kỳ tài liệu nào cho bất kỳ mục đích thương mại hoặc để hiển thị công khai",
+        "bullet3": "Cố gắng phân giải hoặc đảo ngược thiết kế bất kỳ phần mềm nào trên trang web",
+        "bullet4": "Chuyển tài liệu sang một người khác hoặc 'sao chép' tài liệu trên bất kỳ máy chủ nào khác"
+      },
+      "disclaimer": {
+        "title": "3. Miễn trừ Trách nhiệm",
+        "content1": "Các tài liệu trên trang web Công dân số được cung cấp 'như vậy'. Công dân số không cấp bất kỳ bảo hành nào, rõ ràng hoặc ngầm, và từ đây từ chối và phủ nhận tất cả các bảo hành khác bao gồm, nhưng không giới hạn, bảo hành ngầm hoặc điều kiện về khả năng bán hàng, phù hợp cho một mục đích cụ thể, hoặc không xâm phạm quyền sở hữu trí tuệ hoặc các quyền khác.",
+        "content2": "Hơn nữa, Công dân số không bảo hành hoặc không đưa ra bất kỳ tuyên bố nào về tính chính xác, kết quả có khả năng hoặc độ tin cậy của việc sử dụng các tài liệu trên trang web của nó hoặc liên quan đến các tài liệu như vậy hoặc trên bất kỳ trang web nào được liên kết với trang web này."
+      },
+      "limitations": {
+        "title": "4. Hạn chế Trách nhiệm",
+        "content": "Trong mọi trường hợp, Công dân số hoặc nhà cung cấp của nó không chịu trách nhiệm về bất kỳ thiệt hại nào (bao gồm, nhưng không giới hạn, thiệt hại mất dữ liệu hoặc lợi nhuận, hoặc do gián đoạn kinh doanh) phát sinh từ việc sử dụng hoặc không thể sử dụng các tài liệu trên trang web Công dân số, ngay cả khi Công dân số hoặc đại diện được ủy quyền của Công dân số đã được thông báo bằng lời nói hoặc bằng văn bản về khả năng xảy ra thiệt hại như vậy."
+      },
+      "intellectualProperty": {
+        "title": "5. Quyền Sở hữu Trí tuệ",
+        "content": "Tất cả nội dung trên trang web này, bao gồm văn bản, đồ họa, logo, hình ảnh và phần mềm, là tài sản của Công dân số hoặc các nhà cung cấp nội dung của nó và được bảo vệ bởi luật bản quyền quốc tế. Bạn không được sao chép, phân phối hoặc truyền bất kỳ nội dung nào mà không có sự cho phép trước bằng văn bản của chúng tôi."
+      },
+      "userConduct": {
+        "title": "6. Hành vi Người dùng Bị cấm",
+        "description": "Bạn đồng ý không sử dụng trang web này theo bất kỳ cách nào có thể gây hại, vô hiệu hóa hoặc làm suy yếu trang web hoặc can thiệp vào việc sử dụng hoặc thưởng thức của trang web bởi bất kỳ bên nào khác. Hành vi bị cấm bao gồm:",
+        "bullet1": "Qu騷rão hoặc gây ra sự bất kỳ hoặc phiền toái cho bất kỳ người nào",
+        "bullet2": "Ngôn ngữ ô uế hoặc x冒phạm",
+        "bullet3": "Làm gián đoạn luồng đối thoại bình thường trong trang web của chúng tôi",
+        "bullet4": "Cố gắng lấy quyền truy cập trái phép vào hệ thống của chúng tôi"
+      },
+      "thirdPartyLinks": {
+        "title": "7. Liên kết Bên thứ ba",
+        "content": "Công dân số chưa xem lại tất cả các trang web được liên kết đến trang web của nó và không chịu trách nhiệm về nội dung của bất kỳ trang web được liên kết nào. Việc bao gồm bất kỳ liên kết nào không có nghĩa là sự chứng thực bởi Công dân số của trang web. Việc sử dụng bất kỳ trang web được liên kết nào như vậy là rủi ro của người dùng."
+      },
+      "modifications": {
+        "title": "8. Sửa đổi",
+        "content": "Công dân số có thể sửa đổi các điều khoản sử dụng này cho trang web của nó bất kỳ lúc nào mà không cần thông báo. Bằng cách sử dụng trang web này, bạn đồng ý bị ràng buộc bởi phiên bản hiện tại của các điều khoản sử dụng này."
+      },
+      "governingLaw": {
+        "title": "9. Luật Điều chỉnh",
+        "content": "Các điều khoản và điều kiện này được điều chỉnh bởi và được diễn giải theo luật pháp của Việt Nam, và bạn không thể bãi bỏ được thẩm quyền độc quyền của các tòa án ở Việt Nam."
+      },
+      "contact": {
+        "title": "10. Liên hệ Chúng tôi",
+        "description": "Nếu bạn có bất kỳ câu hỏi hoặc quan ngại nào về Điều khoản sử dụng này, vui lòng liên hệ với chúng tôi:",
+        "cta": "Liên hệ ngay"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật",
+    "lastUpdated": "Cập nhật lần cuối",
+    "introDescription": "Chúng tôi coi trọng quyền riêng tư của bạn và cam kết bảo vệ thông tin cá nhân. Chính sách bảo mật này nêu chi tiết cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn khi bạn truy cập trang web của chúng tôi.",
+    "sections": {
+      "informationCollection": {
+        "title": "1. Thông tin Chúng tôi Thu thập",
+        "content1": "Chúng tôi thu thập thông tin mà bạn tự nguyện cung cấp khi sử dụng dịch vụ của chúng tôi, chẳng hạn như khi bạn đăng ký nhận bản tin hoặc liên hệ với chúng tôi qua trang web.",
+        "content2": "Chúng tôi cũng có thể tự động thu thập thông tin nhất định về thiết bị và cách bạn tương tác với trang web, bao gồm:",
+        "bullet1": "Thông tin thiết bị (địa chỉ IP, loại trình duyệt, hệ điều hành)",
+        "bullet2": "Dữ liệu sử dụng (trang được truy cập, thời gian ở trên trang web, trang web tham chiếu)",
+        "bullet3": "Cookies và các công nghệ theo dõi tương tự"
+      },
+      "dataUsage": {
+        "title": "2. Cách Chúng tôi Sử dụng Thông tin của Bạn",
+        "description": "Chúng tôi sử dụng thông tin được thu thập cho các mục đích sau:",
+        "bullet1": "Để cung cấp và duy trì dịch vụ",
+        "bullet2": "Để gửi bản tin và nội dung giáo dục (với sự đồng ý của bạn)",
+        "bullet3": "Để cải thiện và cá nhân hóa trải nghiệm của bạn",
+        "bullet4": "Để tuân thủ các yêu cầu pháp lý và bảo vệ quyền lợi của chúng tôi"
+      },
+      "dataProtection": {
+        "title": "3. Bảo vệ Dữ liệu",
+        "content1": "Chúng tôi thực hiện các biện pháp bảo mật toàn diện để bảo vệ thông tin cá nhân của bạn khỏi truy cập trái phép, thay đổi, tiết lộ hoặc hủy diệt.",
+        "content2": "Tuy nhiên, không có phương pháp truyền qua internet nào là 100% an toàn. Mặc dù chúng tôi cố gắng sử dụng các phương tiện được chấp nhận trong thương mại để bảo vệ thông tin của bạn, chúng tôi không thể đảm bảo sự an toàn tuyệt đối."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "description": "Trang web của chúng tôi sử dụng cookies để cải thiện trải nghiệm duyệt web của bạn. Cookies là các tệp nhỏ được lưu trữ trên thiết bị của bạn giúp chúng tôi nhận ra bạn và ghi nhớ sở thích của bạn.",
+        "details": "Bạn có thể kiểm soát cookies thông qua cài đặt trình duyệt. Lưu ý rằng việc vô hiệu hóa cookies có thể ảnh hưởng đến chức năng của trang web của chúng tôi."
+      },
+      "thirdParty": {
+        "title": "5. Dịch vụ Bên thứ Ba",
+        "description": "Trang web của chúng tôi có thể chứa liên kết đến các trang web và dịch vụ bên thứ ba. Chúng tôi không chịu trách nhiệm về các phương thức bảo vệ quyền riêng tư của họ. Chúng tôi khuyến khích bạn xem lại các chính sách bảo mật của họ trước khi cung cấp bất kỳ thông tin cá nhân nào."
+      },
+      "userRights": {
+        "title": "6. Quyền của Bạn",
+        "description": "Tùy thuộc vào vị trí của bạn, bạn có thể có các quyền nhất định liên quan đến thông tin cá nhân của mình:",
+        "bullet1": "Quyền truy cập dữ liệu cá nhân của bạn",
+        "bullet2": "Quyền sửa chữa thông tin không chính xác",
+        "bullet3": "Quyền yêu cầu xóa dữ liệu của bạn"
+      },
+      "contact": {
+        "title": "7. Liên hệ Chúng tôi",
+        "description": "Nếu bạn có bất kỳ câu hỏi hoặc quan ngại nào về Chính sách bảo mật này hoặc các phương thức bảo vệ quyền riêng tư của chúng tôi, vui lòng liên hệ với chúng tôi:",
+        "cta": "Liên hệ ngay"
+      }
+    }
+  },
   "blog": {
     "hero": {
       "title": "Góc sinh viên &",

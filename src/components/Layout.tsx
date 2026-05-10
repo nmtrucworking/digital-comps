@@ -92,63 +92,74 @@ export default function Layout() {
       {/* Footer */}
       <footer className="bg-surface-container-low border-t border-outline-variant mt-xl">
         <div className="max-w-container-max mx-auto px-8 md:px-20 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-xl">
             {/* Column 1: Brand & Social */}
             <div className="flex flex-col gap-md">
               <div className="text-2xl font-bold tracking-tighter text-primary font-display-xl">
                 {t('common.siteName')}
               </div>
-              <p className="text-on-surface-variant font-body-md">
+              <p className="text-on-surface-variant font-body-md text-sm">
                 {t('footer.description')}
               </p>
-              <div className="flex gap-4">
-                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+              <div className="flex gap-4 pt-2">
+                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#" aria-label="Message">
                   <MessageCircle className="w-5 h-5" />
                 </a>
-                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#" aria-label="Website">
                   <Globe className="w-5 h-5" />
                 </a>
-                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+                <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#" aria-label="Share">
                   <Share2 className="w-5 h-5" />
                 </a>
               </div>
             </div>
             
-            {/* Column 2: About Project */}
+            {/* Column 2: Navigation */}
+            <div className="flex flex-col gap-base">
+              <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('common.siteName')}</h4>
+              <ul className="flex flex-col gap-3">
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/">{t('navigation.home')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/team">{t('navigation.about')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/opportunities">{t('navigation.opportunities')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/library">{t('navigation.library')}</Link></li>
+              </ul>
+            </div>
+            
+            {/* Column 3: About Project */}
             <div className="flex flex-col gap-base">
               <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('navigation.about')}</h4>
               <ul className="flex flex-col gap-3">
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.overview')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.team')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/team">{t('footer.about.links.mission')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/blog">{t('footer.about.links.news')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/team">{t('footer.about.links.overview')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/team">{t('footer.about.links.team')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/team">{t('footer.about.links.mission')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/blog">{t('footer.about.links.news')}</Link></li>
               </ul>
             </div>
             
-            {/* Column 3: Topics */}
+            {/* Column 4: Topics */}
             <div className="flex flex-col gap-base">
               <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('footer.topics.title')}</h4>
               <ul className="flex flex-col gap-3">
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.cyberSafety')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.searchSkills')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.contentCreation')}</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/opportunities">{t('footer.topics.items.socialEthics')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/opportunities">{t('footer.topics.items.cyberSafety')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/opportunities">{t('footer.topics.items.searchSkills')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/opportunities">{t('footer.topics.items.contentCreation')}</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-sm" to="/opportunities">{t('footer.topics.items.socialEthics')}</Link></li>
               </ul>
             </div>
             
-            {/* Column 4: Newsletter */}
+            {/* Column 5: Newsletter */}
             <div className="flex flex-col gap-base">
               <h4 className="font-label-bold text-on-surface uppercase tracking-wider mb-2">{t('footer.newsletter.title')}</h4>
-              <p className="text-on-surface-variant font-body-md mb-2">{t('footer.newsletter.description')}</p>
+              <p className="text-on-surface-variant font-body-md text-sm mb-2">{t('footer.newsletter.description')}</p>
               <form className="flex flex-col gap-sm">
                 <div className="relative">
                   <input
-                    className="w-full px-4 py-3 bg-surface-container-highest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 bg-surface-container-highest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm"
                     placeholder={t('footer.newsletter.placeholder')}
                     type="email"
                   />
                 </div>
-                <button className="bg-primary text-on-primary font-button px-6 py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-all" type="submit">
+                <button className="bg-primary text-on-primary font-button px-6 py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-all text-sm" type="submit">
                   {t('footer.newsletter.cta')}
                 </button>
               </form>
@@ -161,9 +172,9 @@ export default function Layout() {
               {t('footer.bottomBar.copyright', { year: new Date().getFullYear(), siteName: t('common.siteName') })}
             </p>
             <div className="flex gap-6 text-sm font-label-bold text-on-surface-variant">
-              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.privacy')}</a>
-              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.terms')}</a>
-              <a className="hover:text-primary" href="#">{t('footer.bottomBar.links.contact')}</a>
+              <a className="hover:text-primary transition-colors" href="/privacy">{t('footer.bottomBar.links.privacy')}</a>
+              <a className="hover:text-primary transition-colors" href="/terms">{t('footer.bottomBar.links.terms')}</a>
+              <a className="hover:text-primary transition-colors" href="/contact">{t('footer.bottomBar.links.contact')}</a>
             </div>
           </div>
         </div>

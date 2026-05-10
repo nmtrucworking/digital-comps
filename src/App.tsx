@@ -8,6 +8,9 @@ import Opportunities from './pages/Opportunities';
 import Blog from './pages/Blog';
 import BlogDetails from './pages/BlogDetails';
 import Library from './pages/Library';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<BlogDetails />} />
           <Route path="library" element={<Library />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </Router>
