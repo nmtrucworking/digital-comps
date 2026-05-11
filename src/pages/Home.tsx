@@ -10,15 +10,15 @@ export default function Home() {
   const roleColorClassByIndex = ['text-primary', 'text-tertiary', 'text-secondary'];
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative px-6 md:px-20 max-w-container-max mx-auto w-full min-h-[calc(100vh-80px)] py-12 md:py-16 overflow-hidden flex items-center">
+      <section className="relative px-6 md:px-20 max-w-container-max mx-auto w-full min-h-[90vh] py-20 flex items-center">
         {/* Premium Background Glows */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/25 rounded-full blur-[140px] pointer-events-none translate-x-1/4 -translate-y-1/4 -z-10 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tertiary/20 rounded-full blur-[140px] pointer-events-none -translate-x-1/4 translate-y-1/4 -z-10"></div>
         <div className="absolute inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(0,209,193,0.25),transparent_50%),radial-gradient(circle_at_80%_40%,rgba(120,37,234,0.22),transparent_40%)]"></div>
         
-        <div className="relative z-20 flex flex-col gap-lg max-w-3xl md:pr-[12rem] lg:pr-[15rem] xl:pr-[20rem] before:absolute before:-inset-x-6 before:-inset-y-8 before:rounded-[2rem] before:bg-white/35 before:backdrop-blur-sm before:border before:border-white/40 before:-z-10 before:shadow-[0_24px_65px_rgba(0,106,98,0.12)]">
+        <div className="relative z-20 flex flex-col gap-lg max-w-2xl before:absolute before:-inset-y-8 before:-inset-x-4 sm:before:-inset-x-8 before:rounded-[2.5rem] before:bg-white/30 before:backdrop-blur-md before:border before:border-white/40 before:-z-10 before:shadow-[0_24px_80px_rgba(0,106,98,0.1)]">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,8 @@ export default function Home() {
             <p className="text-lg font-headline-md text-on-surface">Globe Interactive</p>
           </div>
         </motion.div>
-        <div className="absolute top-1/2 -translate-y-1/2 -right-16 sm:-right-24 md:-right-32 lg:-right-48 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] md:w-[650px] md:h-[650px] lg:w-[850px] lg:h-[850px] xl:w-[950px] xl:h-[950px] z-10 pointer-events-none lg:pointer-events-auto">
+        {/* Globe Container - Đã sửa lỗi bị cắt */}
+        <div className="absolute -right-10 md:right-0 top-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[550px] sm:h-[550px] lg:w-[750px] lg:h-[750px] z-[10] pointer-events-none drop-shadow-[0_0_50px_rgba(0,209,193,0.15)]">
           <Globe />
         </div>
       </section>
@@ -112,7 +113,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mt-12 cursor-pointer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {teamMembers.map((member, idx) => (
             (() => {
               const fullName = member.fullNameKey ? t(member.fullNameKey) : (member.fullName ?? '');
@@ -142,6 +143,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

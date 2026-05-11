@@ -51,9 +51,6 @@ export default function Layout() {
           
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
-            <button className="bg-gradient-to-r from-tertiary to-primary-container text-on-primary font-button text-button px-6 py-3 rounded-full shadow-[0_4px_14px_0_rgba(0,209,193,0.39)] hover:shadow-[0_6px_20px_rgba(0,209,193,0.23)] transition-all">
-              {t('common.joinButton')}
-            </button>
           </div>
 
           <button 
@@ -72,11 +69,8 @@ export default function Layout() {
             <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/opportunities')} to="/opportunities">{t('navigation.opportunities')}</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/library')} to="/library">{t('navigation.library')}</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} className={getMobileLinkClass('/blog')} to="/blog">{t('navigation.blog')}</Link>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4">
               <LanguageSwitcher />
-              <button className="flex-1 bg-gradient-to-r from-tertiary to-primary-container text-on-primary font-button text-button px-6 py-3 rounded-xl shadow-md transition-all">
-                {t('common.joinNowButton')}
-              </button>
             </div>
           </div>
         )}

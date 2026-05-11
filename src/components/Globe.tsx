@@ -2,10 +2,6 @@ import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-/**
- * Định nghĩa cấu trúc dữ liệu cho trạng thái của Globe.
- * Việc khai báo này giúp loại bỏ lỗi ts(7006) và tăng tính minh bạch cho mã nguồn.
- */
 interface GlobeState {
   phi: number;
   theta: number;
@@ -14,10 +10,6 @@ interface GlobeState {
   [key: string]: any;
 }
 
-/**
- * Component Globe: Hiển thị quả địa cầu 3D tương tác sử dụng WebGL.
- * Tích hợp các đường arcs đại diện cho sự kết nối số giữa các khu vực địa lý.
- */
 export default function Globe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
@@ -30,7 +22,6 @@ export default function Globe() {
 
     if (!canvasRef.current) return;
 
-    // Khởi tạo instance quả địa cầu từ thư viện cobe
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
       width: canvasSize,
@@ -39,37 +30,38 @@ export default function Globe() {
       theta: 0.3,
       dark: 0, 
       diffuse: 1.2,
-      scale: 1,
+      // TĂNG TỶ LỆ RENDER ĐỂ KHỬ INTERNAL MARGIN
+      scale: 2.0, 
       mapSamples: 16000,
       mapBrightness: 6,
-      baseColor: [0.95, 0.98, 0.98], // Màu nền lục địa
-      markerColor: [0, 0.82, 0.75], // Màu của các điểm nút (Cyan)
-      glowColor: [0.8, 0.95, 1],    // Màu hào quang xung quanh
+      // Dịch chuyển tâm render của quả cầu (đơn vị pixel trên canvas)
+      // [x, y]: đẩy x sang phải và y xuống dưới để sát mép
+      offset: [canvasSize * 0.5, canvasSize * 0.5],
+      baseColor: [0.95, 0.98, 0.98],
+      markerColor: [0, 0.82, 0.75],
+      glowColor: [0.8, 0.95, 1],
       arcColor: [0, 0.82, 0.75],
       arcWidth: 0.55,
       arcHeight: 0.28,
       markers: [
-        // Tọa độ các thành phố chiến lược [vĩ độ, kinh độ]
-        { location: [21.0285, 105.8542], size: 0.1 },  // Hà Nội
-        { location: [10.8231, 106.6297], size: 0.1 },  // TP.HCM
-        { location: [35.6762, 139.6503], size: 0.05 }, // Tokyo
-        { location: [37.7749, -122.4194], size: 0.05 },// San Francisco
-        { location: [51.5074, -0.1278], size: 0.05 },  // London
-        { location: [1.3521, 103.8198], size: 0.05 },  // Singapore
-        { location: [-33.8688, 151.2093], size: 0.05 },// Sydney
+        { location: [21.0285, 105.8542], size: 0.1 },
+        { location: [10.8231, 106.6297], size: 0.1 },
+        { location: [35.6762, 139.6503], size: 0.05 },
+        { location: [37.7749, -122.4194], size: 0.05 },
+        { location: [51.5074, -0.1278], size: 0.05 },
+        { location: [1.3521, 103.8198], size: 0.05 },
+        { location: [-33.8688, 151.2093], size: 0.05 },
       ],
       arcs: [
-        // Định nghĩa các đường cung nối giữa các điểm để thể hiện sự liên kết
-        { from: [21.0285, 105.8542], to: [35.6762, 139.6503], color: [0, 0.82, 0.75] }, // Hà Nội - Tokyo
-        { from: [10.8231, 106.6297], to: [1.3521, 103.8198], color: [0, 0.82, 0.75] }, // TP.HCM - Singapore
-        { from: [21.0285, 105.8542], to: [51.5074, -0.1278], color: [0, 0.82, 0.75] }, // Hà Nội - London
-        { from: [10.8231, 106.6297], to: [37.7749, -122.4194], color: [0, 0.82, 0.75] },// TP.HCM - SF
-        { from: [1.3521, 103.8198], to: [-33.8688, 151.2093], color: [0, 0.82, 0.75] }, // Singapore - Sydney
-        { from: [37.7749, -122.4194], to: [51.5074, -0.1278], color: [0, 0.82, 0.75] }, // SF - London
-        { from: [35.6762, 139.6503], to: [37.7749, -122.4194], color: [0, 0.82, 0.75] }, // Tokyo - SF
+        { from: [21.0285, 105.8542], to: [35.6762, 139.6503], color: [0, 0.82, 0.75] },
+        { from: [10.8231, 106.6297], to: [1.3521, 103.8198], color: [0, 0.82, 0.75] },
+        { from: [21.0285, 105.8542], to: [51.5074, -0.1278], color: [0, 0.82, 0.75] },
+        { from: [10.8231, 106.6297], to: [37.7749, -122.4194], color: [0, 0.82, 0.75] },
+        { from: [1.3521, 103.8198], to: [-33.8688, 151.2093], color: [0, 0.82, 0.75] },
+        { from: [37.7749, -122.4194], to: [51.5074, -0.1278], color: [0, 0.82, 0.75] },
+        { from: [35.6762, 139.6503], to: [37.7749, -122.4194], color: [0, 0.82, 0.75] },
       ],
       onRender: (state: GlobeState) => {
-        // Cơ chế tự động quay khi không có sự tương tác của người dùng
         if (!pointerInteracting.current) {
           phi.current += 0.005;
         }
@@ -79,7 +71,6 @@ export default function Globe() {
       },
     } as any);
 
-    // Cleanup khi component unmount
     return () => {
       globe.destroy();
     };
@@ -92,7 +83,6 @@ export default function Globe() {
       transition={{ duration: 1, ease: "easeOut" }}
       className="w-full h-full mx-auto flex items-center justify-center relative cursor-grab active:cursor-grabbing"
     >
-      {/* Hiệu ứng gradient nền phát sáng (pulse) */}
       <div className="absolute inset-0 bg-primary-container/20 rounded-full blur-[100px] animate-pulse"></div>
       
       <canvas
