@@ -1,4 +1,4 @@
-import { Rocket, ArrowRight, PlayCircle, Sparkles, Orbit } from 'lucide-react';
+import { Rocket, ArrowRight, PlayCircle, Sparkles, Orbit, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Globe from '../components/Globe';
 import { motion } from 'framer-motion';
@@ -17,9 +17,9 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/25 rounded-full blur-[140px] pointer-events-none translate-x-1/4 -translate-y-1/4 -z-10 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tertiary/20 rounded-full blur-[140px] pointer-events-none -translate-x-1/4 translate-y-1/4 -z-10"></div>
         <div className="absolute inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(0,209,193,0.25),transparent_50%),radial-gradient(circle_at_80%_40%,rgba(120,37,234,0.22),transparent_40%)]"></div>
-        
+
         <div className="relative z-20 flex flex-col gap-lg max-w-2xl before:absolute before:-inset-y-8 before:-inset-x-4 sm:before:-inset-x-8 before:rounded-[2.5rem] before:bg-white/30 before:backdrop-blur-md before:border before:border-white/40 before:-z-10 before:shadow-[0_24px_80px_rgba(0,106,98,0.1)]">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -28,7 +28,7 @@ export default function Home() {
             <Rocket className="w-5 h-5" />
             {t('home.hero.badge')}
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -36,7 +36,7 @@ export default function Home() {
           >
             {t('home.hero.title')}
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ export default function Home() {
               Global Learning Orbit
             </span>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -70,10 +70,11 @@ export default function Home() {
               {t('home.hero.cta')}
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <button className="border border-primary/35 bg-white/60 text-primary font-button text-button uppercase px-8 py-4 rounded-full hover:bg-white/80 transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:-translate-y-0.5 backdrop-blur-md shadow-[0_8px_24px_rgba(0,106,98,0.12)]">
+            <Link to="/library/video/vid-004"
+              className="border border-primary/35 bg-white/60 text-primary font-button text-button uppercase px-8 py-4 rounded-full hover:bg-white/80 transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:-translate-y-0.5 backdrop-blur-md shadow-[0_8px_24px_rgba(0,106,98,0.12)]">
               <PlayCircle className="w-5 h-5" />
               {t('home.hero.watchVideo')}
-            </button>
+            </Link>
           </motion.div>
         </div>
         <motion.div
@@ -98,7 +99,7 @@ export default function Home() {
 
       {/* Team Section */}
       <section className="relative py-12 md:py-xl px-6 md:px-20 max-w-container-max mx-auto w-full">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -121,23 +122,23 @@ export default function Home() {
               const bio = member.bioKey ? t(member.bioKey) : (member.bio ?? '');
 
               return (
-            <motion.div 
-              key={member.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
-              className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
-            >
-              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
-                <img src={member.avatarUrl} alt={fullName} className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-headline-md text-xl font-bold text-on-surface">{fullName}</h3>
-              <p className={`font-label-bold text-sm mb-3 ${roleColorClassByIndex[idx % roleColorClassByIndex.length]}`}>{role}</p>
-              <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
-                {bio}
-              </p>
-            </motion.div>
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
+                  className="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col items-center text-center hover:shadow-[0_8px_32px_rgba(0,209,193,0.1)] transition-all hover:-translate-y-1"
+                >
+                  <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-surface-container">
+                    <img src={member.avatarUrl} alt={fullName} className="w-full h-full object-cover" />
+                  </div>
+                  <h3 className="font-headline-md text-xl font-bold text-on-surface">{fullName}</h3>
+                  <p className={`font-label-bold text-sm mb-3 ${roleColorClassByIndex[idx % roleColorClassByIndex.length]}`}>{role}</p>
+                  <p className="font-body-md text-sm text-on-surface-variant line-clamp-3">
+                    {bio}
+                  </p>
+                </motion.div>
               );
             })()
           ))}

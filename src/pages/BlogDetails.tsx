@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, ExternalLink, FileText } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -174,6 +174,43 @@ export default function BlogDetails() {
                       <p className="text-on-surface-variant text-sm">
                         Nội dung chi tiết của bài viết này đang được cập nhật. Hiện tại bạn có thể xem phần tóm tắt và các bài viết liên quan bên cạnh.
                       </p>
+                    </div>
+                  )}
+
+                  {post.slidesUrl && (
+                    <div className="mt-8 bg-surface-container-low border border-outline-variant/50 rounded-xl p-6 shadow-sm">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                          <FileText className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h4 className="text-base font-bold text-on-surface">Tài liệu đính kèm: Slide-show Báo cáo Dự án</h4>
+                          <p className="text-xs text-on-surface-variant">Hệ thống trình chiếu trực quan minh họa nội dung nghiên cứu.</p>
+                        </div>
+                      </div>
+                      
+                      {/* Khung iframe với tỷ lệ 16:9 (aspect-video) */}
+                      <div className="relative w-full rounded-lg overflow-hidden bg-black aspect-video border border-outline-variant/30 shadow-inner">
+                        <iframe
+                          src={post.slidesUrl.replace(/\/view.*$/, '/preview')}
+                          className="absolute top-0 left-0 w-full h-full border-0"
+                          allow="autoplay; encrypted-media; fullscreen"
+                          allowFullScreen
+                          title="Slide-show Presentation"
+                        ></iframe>
+                      </div>
+                      
+                      <div className="mt-3 text-right">
+                         <a 
+                            href={post.slidesUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline font-medium"
+                          >
+                            Mở rộng toàn màn hình
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                      </div>
                     </div>
                   )}
                 </div>

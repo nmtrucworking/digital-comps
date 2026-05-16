@@ -33,13 +33,19 @@ export interface ImageItem {
 
 export interface BlogPost {
   id: string;
-  title: string;
+  title?: string;
+  titleKey?: string;     // Dùng cho i18n
   author?: string;
-  publishedDate?: string; // ISO date
+  publishedDate?: string; 
+  date?: string;         // Dùng cho i18n (tuỳ chọn)
   thumbnail?: string;
+  coverImage?: string;   // Dùng cho ảnh bìa i18n
   summary?: string;
+  excerptKey?: string;   // Dùng cho i18n
   content?: string;
+  contentKey?: string;   // Dùng cho i18n
   tags?: string[];
+  slidesUrl?: string;    // Link file Google Drive Slide-show đính kèm
 }
 
 export interface TeamMember {

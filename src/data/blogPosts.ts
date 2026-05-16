@@ -7,6 +7,7 @@ import createContentBlog from '../assets/images/blog-createContent.png';
 import scamBlog from '../assets/images/blog-scam.png';
 import timeManagementBlog from '../assets/images/blog-timeManagement.png';
 import useAIBlog from '../assets/images/blog-useAI.png';
+import thumbNailSlideShow01 from '../assets/images/thumbnail-slide-show.png';
 
 export const blogPosts: BlogPost[] = [
 	{
@@ -303,5 +304,18 @@ Quản lý thời gian thực ra là quản lý năng lượng và ưu tiên. Kh
 
 > Bạn không thiếu thời gian. Bạn thiếu một cách chọn việc phù hợp với mục tiêu và năng lượng của mình. Bắt đầu nhỏ: lên lịch 1 ngày mẫu, rồi lặp lại.`,
 		tags: ['Productivity', 'Work-Life Balance']
-	}
+	},
+	{
+    id: 'blog-digital-citizen-portrait',
+    title: 'Khung Năng Lực Số Và Trách Nhiệm Hành Vi Của Sinh Viên Trong Kỷ Nguyên Siêu Kết Nối',
+    summary: 'Bài viết phân tích mô hình năng lực số dành cho sinh viên hiện đại, tập trung vào kỹ năng khai thác thông tin phản biện, bảo mật dữ liệu và đạo đức ứng xử trực tuyến.',
+    content: `
+	### 1. Đặt vấn đề và bối cảnh nghiên cứu\nTrong bối cảnh chuyển đổi số giáo dục toàn diện, không gian mạng không còn đơn thuần là công cụ tra cứu thứ cấp, mà đã dịch chuyển thành môi trường học tập, giao tiếp và vận hành chính yếu của sinh viên đại học. Việc thiết lập một khung năng lực số toàn diện là cơ sở tảng để đảm bảo hiệu suất học thuật và giảm thiểu các rủi ro an ninh thông tin cá nhân.\n\n### 2. Năng lực khai thác và quản lý dữ liệu chủ động\nTương tác dữ liệu hiệu quả đòi hỏi sinh viên vượt qua kỹ năng tìm kiếm từ khóa thông thường, tiến tới quy trình phân loại, lưu trữ và đồng bộ hóa tài nguyên học thuật một cách hệ thống. Việc sử dụng các công cụ quản lý điện toán đám mây và nền tảng cộng tác trực tuyến giúp tối ưu hóa cấu trúc dữ liệu cá nhân, phục vụ tiến trình nghiên cứu dài hạn.\n\n### 3. Tư duy phản biện và cơ chế kiểm chứng thông tin\nĐối diện với thực trạng bùng nổ thông tin và sự gia tăng của các dạng thức tin giả (Fake News) trên các nền tảng truyền thông xã hội, tư duy phản biện đóng vai trò như một bộ lọc kỹ thuật. Quy trình kiểm chứng yêu cầu sinh viên thực hiện đối chiếu chéo nguồn lực (cross-referencing), xác minh tính chính danh của tác giả và đánh giá các dẫn chứng định lượng trước khi tiếp thu hoặc tái lan truyền thông tin.\n\n### 4. Nguyên tắc bảo mật thông tin và an toàn không gian mạng\nQuản lý định danh số cá nhân đòi hỏi việc thực thi các biện pháp phòng ngừa nghiêm ngặt trước các phương thức tấn công phi kỹ thuật (Phishing) và mã độc (Malware). Việc cấu hình mật khẩu phức tạp, kích hoạt xác thực hai yếu tố (2FA) và kiểm soát quyền riêng tư của tài khoản là các hành vi bắt buộc nhằm bảo vệ quyền tác giả học thuật và dữ liệu cá nhân.\n\n### 5. Đạo đức số và trách nhiệm hành vi cộng đồng (Netiquette)\nHành vi ứng xử trên môi trường trực tuyến là thước đo năng lực văn hóa của một công dân số. Sinh viên cần nhận thức rõ ranh giới pháp lý và quy chuẩn đạo đức khi thực hiện phát ngôn, tranh luận học thuật hoặc chia sẻ thông tin trực tuyến, nhằm duy trì một hệ sinh thái mạng lành mạnh, có tính xây dựng cao.\n\n### 6. Kết luận và Khuyến nghị hệ thống\nKhung năng lực số không phải là một tập hợp các thao tác kỹ thuật cố định, mà là một tiến trình cập nhật tri thức liên tục. Sinh viên cần chủ động tham gia vào các hoạt động thực nghiệm, ứng dụng công nghệ mới để hoàn thiện chân dung công dân số của bản thân.
+	`,
+    publishedDate: '2026-05-17',
+    author: 'Digital Citizen Team',
+    thumbnail: thumbNailSlideShow01,
+    tags: ['Năng lực số', 'Nghiên cứu sinh viên', 'An toàn thông tin'],
+    slidesUrl: 'https://drive.google.com/file/d/1lZZaMznmj6z-AIMzbUeS1Yj22zSJe11A/view?usp=sharing'
+  }
 ];

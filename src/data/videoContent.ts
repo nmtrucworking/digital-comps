@@ -1,9 +1,10 @@
 import type { Video } from '../types/data';
 
+import landingThumbnail from '../assets/images/thumbnail-heo-videopng.png';
+
 const seminarVideo = 'https://drive.google.com/file/d/1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv/view?usp=sharing';
 const seminarThumbnail = 'https://drive.google.com/thumbnail?id=1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv&sz=w1600';
 const landingVideo = 'https://drive.google.com/file/d/132ZCJSFW1nwv2KHgAYKQWO_nZsAi04nH/view?usp=sharing';
-const landingThumbnail = 'https://drive.google.com/thumbnail?id=132ZCJSFW1nwv2KHgAYKQWO_nZsAi04nH&sz=w1600';
 
 export const videoContent: Video[] = [
 	{
