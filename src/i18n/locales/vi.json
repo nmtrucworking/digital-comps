@@ -66,31 +66,32 @@
     "objectives": {
       "title": "Mục tiêu nghiên cứu",
       "items": [
-        "Đánh giá toàn diện thực trạng nhận thức và hành vi của sinh viên Việt Nam trên không gian mạng hiện nay.",
-        "Xác định các lỗ hổng kỹ năng số cần được bồi đắp trong chương trình giáo dục đại học.",
-        "Đề xuất bộ tiêu chuẩn \"Công dân số 2.0\" phù hợp với văn hóa và định hướng phát triển của quốc gia."
+        "Hệ thống hóa cơ sở lý thuyết về công dân số làm nền tảng phân tích hành vi trong môi trường MXH.",
+        "Phân tích thực trạng hành vi sử dụng MXH của sinh viên Việt Nam để làm rõ cách thức hình thành bản sắc số.",
+        "Đánh giá mức độ nhận thức của sinh viên về an toàn thông tin, quyền riêng tư và các rủi ro trong môi trường số.",
+        "Đề xuất định hướng và giải pháp nâng cao năng lực công dân số, tập trung vào kỹ năng sử dụng MXH an toàn, có trách nhiệm."
       ]
     },
     "significance": {
       "title": "Ý nghĩa thực tiễn",
-      "description": "Kết quả nghiên cứu cung cấp cơ sở dữ liệu quý giá cho các nhà hoạch định chính sách, các trường đại học trong việc xây dựng chương trình đào tạo kỹ năng mềm và kỹ năng số thời kỳ 4.0.",
+      "description": "Nghiên cứu giúp thu hẹp khoảng cách giữa năng lực công nghệ và trách nhiệm xã hội, đồng thời định hướng cách sử dụng mạng xã hội một cách an toàn, hiệu quả nhằm đối phó với rủi ro và quản trị dấu chân số chuyên nghiệp.",
       "detailedReport": "Xem báo cáo chi tiết"
     },
     "methodology": {
       "title": "Phương pháp nghiên cứu",
-      "subtitle": "Tiếp cận đa chiều, đảm bảo tính khách quan và khoa học.",
+      "subtitle": "Tiếp cận thông qua các dữ liệu thứ cấp, đảm bảo tính khách quan và độ tin cậy.",
       "methods": [
         {
-          "title": "Định lượng",
-          "description": "Khảo sát diện rộng với hơn 5.000 mẫu từ 20 trường đại học lớn trên toàn quốc thông qua bảng hỏi chuẩn hóa."
+          "title": "Phân tích tài liệu",
+          "description": "Khai thác dữ liệu và dẫn chứng từ các nguồn hàn lâm trên môi trường mạng, bao gồm các báo cáo nghiên cứu, bài viết khoa học và các cơ sở dữ liệu học thuật có độ tin cậy cao."
         },
         {
-          "title": "Định tính",
-          "description": "Phỏng vấn sâu và thảo luận nhóm (FGD) với các chuyên gia an ninh mạng, giảng viên và nhóm sinh viên tiêu biểu."
+          "title": "Tổng hợp lý thuyết",
+          "description": "Hệ thống hóa cơ sở lý thuyết về công dân số và các thành phần năng lực liên quan làm nền tảng cho việc phân tích hành vi trong môi trường mạng xã hội."
         },
         {
-          "title": "Nghiên cứu tài liệu",
-          "description": "Tổng hợp và phân tích các khung năng lực số quốc tế (UNESCO, DigComp) để đối chiếu với bối cảnh Việt Nam."
+          "title": "So sánh đối chiếu",
+          "description": "Tiến hành phân tích, đánh giá và đối chiếu các nguồn dữ liệu thứ cấp sẵn có nhằm củng cố tính khách quan và độ tin cậy của kết quả nghiên cứu."
         }
       ]
     },
@@ -112,16 +113,16 @@
       "title": "Cơ hội",
       "cards": [
         {
-          "title": "Học tập toàn cầu không giới hạn",
-          "description": "Tiếp cận kho tàng tri thức nhân loại từ các trường đại học hàng đầu thế giới chỉ với một cú click chuột."
+          "title": "Học tập và nghiên cứu học thuật",
+          "description": "Sử dụng mạng xã hội và trí tuệ nhân tạo như một giảng đường thứ hai nhằm nâng cao hiệu suất học tập, khơi gợi sáng tạo và tiết kiệm thời gian."
         },
         {
-          "title": "Kết nối cộng đồng phi biên giới",
-          "description": "Xóa nhòa khoảng cách địa lý, giao lưu văn hóa và xây dựng mạng lưới quan hệ quốc tế dễ dàng hơn bao giờ hết."
+          "title": "Kết nối và giao tiếp xã hội",
+          "description": "Khai thác triệt để các mạng lưới xã hội và nền tảng video ngắn để linh hoạt tham gia vào các không gian giao tiếp và khám phá thế giới."
         },
         {
-          "title": "Sáng tạo & Khởi nghiệp số",
-          "description": "Tận dụng nền tảng mở để phát triển bản thân, xây dựng thương hiệu cá nhân và khai mở cơ hội khởi nghiệp."
+          "title": "Xây dựng thương hiệu cá nhân và nghề nghiệp",
+          "description": "Quản trị dấu chân số chuyên nghiệp trên các nền tảng như LinkedIn để thu hút nhà tuyển dụng và tận dụng nền kinh tế sáng tạo để tự chủ tài chính."
         }
       ]
     },
@@ -129,16 +130,16 @@
       "title": "Thách thức",
       "cards": [
         {
-          "title": "An ninh & Bảo mật dữ liệu",
-          "description": "Nguy cơ rò rỉ thông tin, lừa đảo trực tuyến và các cuộc tấn công mạng ngày càng tinh vi đe dọa sự an toàn số."
+          "title": "Cạm bẫy thông tin và tin giả (Fake news)",
+          "description": "Sự lan truyền thông tin sai lệch theo cấp số nhân khiến sinh viên hoang mang hoặc có những phát ngôn thiếu chuẩn mực."
         },
         {
-          "title": "Sức khỏe tâm lý & Nghiện công nghệ",
-          "description": "Sự phụ thuộc vào mạng xã hội, trò chơi điện tử dẫn đến lo âu, trầm cảm và mất cân bằng đời sống."
+          "title": "An toàn dữ liệu cá nhân",
+          "description": "Nguy cơ bị chiếm đoạt tài khoản hoặc lộ lọt hình ảnh riêng tư do sử dụng phần mềm bẻ khóa hoặc truy cập liên kết độc hại."
         },
         {
-          "title": "Misinformation & Propaganda",
-          "description": "Tin tức giả, thuyết âm mưu và tuyên truyền chính trị dễ dàng lan truyền và ảnh hưởng đến nhận thức."
+          "title": "Sức khỏe tâm lý và hội chứng FOMO",
+          "description": "Áp lực từ việc so sánh xã hội trên không gian mạng gây ra sự kiệt quệ tinh thần, dễ lôi kéo sinh viên vào các hành vi lệch lạc."
         }
       ]
     }
@@ -368,23 +369,23 @@
   "teamMembers": {
     "tm-001": {
       "fullName": "Nguyễn Minh Trúc",
-      "role": "Trưởng dự án",
-      "bio": ""
+      "role": "Thiết kế & Xây dựng Website",
+      "bio": "Phụ trách thiết kế, xây dựng hệ thống website và biên soạn nội dung Chương 2 của đề tài."
     },
     "tm-002": {
       "fullName": "Phạm Thị Phương Thanh",
-      "role": "",
-      "bio": ""
+      "role": "Nghiên cứu Nội dung",
+      "bio": "Chịu trách nhiệm phát triển nội dung Chương 1 và hỗ trợ biên soạn nội dung Chương 2."
     },
     "tm-003": {
       "fullName": "Diệp Cao Tiến Phúc",
-      "role": "",
-      "bio": ""
+      "role": "Thiết kế Sản phẩm số",
+      "bio": "Đảm nhiệm việc chuẩn bị và thiết kế các sản phẩm đa phương tiện ứng dụng cho dự án."
     },
     "tm-004": {
       "fullName": "Lý Thị Kim Giang",
-      "role": "",
-      "bio": ""
+      "role": "Nghiên cứu Nội dung",
+      "bio": "Chịu trách nhiệm tổng hợp nội dung Chương 4 và hỗ trợ phát triển nội dung Chương 2."
     }
   }
 }

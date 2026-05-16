@@ -1,7 +1,7 @@
 import type { TeamMember } from '../types/data';
 import nmtAvt from '../assets/member-avts/nmt.jpg'
-// import ptptAvt from '../assets/member-avts/ptpt.jpg'
-// import lyAvt from '../assets/member-avts/ly.jpg'
+import ptptAvt from '../assets/member-avts/ptpt.jpg'
+import lyAvt from '../assets/member-avts/ly.jpg'
 import dctpAvt from '../assets/member-avts/dctp.jpg'
 
 
@@ -19,7 +19,7 @@ export const teamMembers: TeamMember[] = [
 		fullNameKey: 'teamMembers.tm-002.fullName',
 		roleKey: 'teamMembers.tm-002.role',
 		bioKey: 'teamMembers.tm-002.bio',
-		avatarUrl: 'https://i.pravatar.cc/150?img=32',
+		avatarUrl: ptptAvt,
 		socialLinks: [{ label: 'GitHub', url: '#' }]
 	},
 	{
@@ -35,7 +35,7 @@ export const teamMembers: TeamMember[] = [
 		fullNameKey: 'teamMembers.tm-004.fullName',
 		roleKey: 'teamMembers.tm-004.role',
 		bioKey: 'teamMembers.tm-004.bio',
-		avatarUrl: 'https://i.pravatar.cc/150?img=60',
+		avatarUrl: lyAvt,
 		socialLinks: [{ label: 'Website', url: '#' }]
 	}
 ];

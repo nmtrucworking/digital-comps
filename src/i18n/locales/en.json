@@ -66,31 +66,32 @@
     "objectives": {
       "title": "Research Objectives",
       "items": [
-        "Comprehensively assess the current awareness and behavior of Vietnamese students in cyberspace.",
-        "Identify digital skill gaps that need to be addressed in higher education programs.",
-        "Propose a set of \"Digital Citizen 2.0\" standards suitable for Vietnam's culture and development direction."
+        "Systematize the theoretical foundation of digital citizenship as a basis for analyzing behavior in the social media environment.",
+        "Analyze the current status of social media usage behavior among Vietnamese students to clarify the formation of digital identity.",
+        "Evaluate students' awareness levels regarding information security, privacy, and risks in the digital environment.",
+        "Propose directions and solutions to enhance digital citizenship capacity, focusing on safe and responsible social media usage skills."
       ]
     },
     "significance": {
       "title": "Practical Significance",
-      "description": "The research results provide valuable data for policymakers and universities in building soft skills and digital skills training programs for the 4.0 era.",
-      "detailedReport": "View Detailed Report"
+      "description": "The research helps bridge the gap between technological capacity and social responsibility, while orienting safe and effective social media usage to cope with risks and manage digital footprints professionally.",
+      "detailedReport": "View detailed report"
     },
     "methodology": {
       "title": "Research Methodology",
-      "subtitle": "Multi-dimensional approach ensuring objectivity and scientific rigor.",
+      "subtitle": "Approached through secondary data, ensuring objectivity and reliability.",
       "methods": [
         {
-          "title": "Quantitative",
-          "description": "Extensive survey with over 5,000 samples from 20 major universities nationwide through standardized questionnaires."
+          "title": "Document Analysis",
+          "description": "Utilizing data and evidence from online academic sources, including research reports, scientific articles, and highly reliable academic databases."
         },
         {
-          "title": "Qualitative",
-          "description": "In-depth interviews and focus group discussions (FGD) with cybersecurity experts, lecturers, and representative student groups."
+          "title": "Theoretical Synthesis",
+          "description": "Systematizing the theoretical foundation of digital citizenship and related competency components to serve as a basis for analyzing behavior in the social media environment."
         },
         {
-          "title": "Document Research",
-          "description": "Synthesis and analysis of international digital competency frameworks (UNESCO, DigComp) compared with Vietnam's context."
+          "title": "Comparative Analysis",
+          "description": "Analyzing, evaluating, and comparing available secondary data sources to strengthen the objectivity and reliability of the research results."
         }
       ]
     },
@@ -112,16 +113,16 @@
       "title": "Opportunities",
       "cards": [
         {
-          "title": "Unlimited Global Learning",
-          "description": "Access the world's knowledge from leading universities with just one click."
+          "title": "Academic Learning and Research",
+          "description": "Utilize social networks and artificial intelligence as a second lecture hall to improve learning performance, stimulate creativity, and save time."
         },
         {
-          "title": "Borderless Community Connection",
-          "description": "Erase geographical distance, cultural exchange, and build international networks more easily than ever."
+          "title": "Social Connection and Communication",
+          "description": "Fully exploit social networks and short video platforms to flexibly participate in communication spaces and explore the world."
         },
         {
-          "title": "Digital Creativity & Entrepreneurship",
-          "description": "Leverage open platforms to develop yourself, build personal branding, and unlock entrepreneurial opportunities."
+          "title": "Personal and Professional Branding",
+          "description": "Professionally manage digital footprints on platforms like LinkedIn to attract employers and leverage the creator economy for financial autonomy."
         }
       ]
     },
@@ -129,16 +130,16 @@
       "title": "Challenges",
       "cards": [
         {
-          "title": "Security & Data Privacy",
-          "description": "Information leaks, online fraud, and increasingly sophisticated cyberattacks threaten digital safety."
+          "title": "Information Traps and Fake News",
+          "description": "The exponential spread of misinformation causes students to be confused or make inappropriate statements."
         },
         {
-          "title": "Mental Health & Technology Addiction",
-          "description": "Dependence on social media and gaming leads to anxiety, depression, and life imbalance."
+          "title": "Personal Data Security",
+          "description": "The risk of account takeover or exposure of private images due to the use of cracked software or accessing malicious links."
         },
         {
-          "title": "Misinformation & Propaganda",
-          "description": "Fake news, conspiracy theories, and political propaganda easily spread and influence perception."
+          "title": "Mental Health and FOMO Syndrome",
+          "description": "Pressure from social comparison in cyberspace causes mental exhaustion, easily drawing students into deviant behaviors."
         }
       ]
     }
@@ -343,7 +344,11 @@
       "title": "Student Corner &",
       "titleHighlight": "Blog",
       "description": "A place to share real experiences, diverse perspectives, and survival tips in the digital age from the Vietnamese student community itself. Explore and contribute your voice.",
-      "tags": ["#DigitalLife", "#GenZTech", "#StudentVoice"]
+      "tags": [
+        "#DigitalLife",
+        "#GenZTech",
+        "#StudentVoice"
+      ]
     },
     "featured": {
       "title": "Featured Stories",
@@ -368,23 +373,23 @@
   "teamMembers": {
     "tm-001": {
       "fullName": "Nguyen Minh Truc",
-      "role": "Project Lead",
-      "bio": "A cybersecurity specialist with over 5 years of experience researching students' digital behavior."
+      "role": "Website Design & Development",
+      "bio": "In charge of designing, building the website system, and compiling the content of Chapter 2 of the project."
     },
     "tm-002": {
       "fullName": "Pham Thi Phuong Thanh",
-      "role": "Content Specialist",
-      "bio": "A design lecturer passionate about spreading creative and responsible online culture."
+      "role": "Content Research",
+      "bio": "Responsible for developing the content of Chapter 1 and supporting the compilation of Chapter 2."
     },
     "tm-003": {
-      "fullName": "Diep Cao Tiến Phúc",
-      "role": "Software Engineer",
-      "bio": "Responsible for system optimization and building the best interactive digital experiences."
+      "fullName": "Diep Cao Tien Phuc",
+      "role": "Digital Product Design",
+      "bio": "In charge of preparing and designing multimedia products applied to the project."
     },
     "tm-004": {
       "fullName": "Ly Thi Kim Giang",
-      "role": "Software Engineer",
-      "bio": "Responsible for system optimization and building the best interactive digital experiences."
+      "role": "Content Research",
+      "bio": "Responsible for synthesizing the content of Chapter 4 and supporting the development of Chapter 2."
     }
   }
 }
