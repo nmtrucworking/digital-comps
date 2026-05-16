@@ -33,8 +33,8 @@ export interface ImageItem {
 
 export interface BlogPost {
   id: string;
-  title?: string;
-  titleKey?: string;     // Dùng cho i18n
+  title: string;
+  // titleKey?: string;     // Dùng cho i18n
   author?: string;
   publishedDate?: string; 
   date?: string;         // Dùng cho i18n (tuỳ chọn)

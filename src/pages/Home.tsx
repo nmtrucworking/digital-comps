@@ -1,4 +1,4 @@
-import { Rocket, ArrowRight, PlayCircle, Sparkles, Orbit, FileText } from 'lucide-react';
+import { Rocket, ArrowRight, PlayCircle, Sparkles, Orbit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Globe from '../components/Globe';
 import { motion } from 'framer-motion';
