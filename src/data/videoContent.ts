@@ -2,6 +2,8 @@ import type { Video } from '../types/data';
 
 const seminarVideo = 'https://drive.google.com/file/d/1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv/view?usp=sharing';
 const seminarThumbnail = 'https://drive.google.com/thumbnail?id=1WtV5b9qcNgRAtQMe6tskEsltlT8xi8Vv&sz=w1600';
+const landingVideo = 'https://drive.google.com/file/d/132ZCJSFW1nwv2KHgAYKQWO_nZsAi04nH/view?usp=sharing';
+const landingThumbnail = 'https://drive.google.com/thumbnail?id=132ZCJSFW1nwv2KHgAYKQWO_nZsAi04nH&sz=w1600';
 
 export const videoContent: Video[] = [
 	{
@@ -39,5 +41,23 @@ export const videoContent: Video[] = [
 		speakers: ['Chuyên gia bảo mật D'],
 		videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 		thumbnailUrl: 'https://via.placeholder.com/1200x720.png?text=Video+3'
+	},
+	{
+		id: 'vid-004',
+		title: 'Video Landing-Page: Digital Citizen',
+		description: 'Tổ hợp 8 tài nguyên đa phương tiện (5 ảnh tĩnh tĩnh, 3 video động) thành một chuỗi thông tin liên tục, có tính logic nhân quả nhằm tối ưu hóa tỷ lệ chuyển đổi trên trang chủ.',
+		duration: '00:30',
+		viewCount: 0,
+		speakers: ['Digital Citizen Team'],
+		videoUrl: landingVideo,
+		thumbnailUrl: landingThumbnail,
+		chapters: [
+			{ time: '00:00:00', title: 'Lời Mở Đầu - Không Gian Siêu Kết Nối' },
+			{ time: '00:00:05', title: 'Mặt Sáng - Cơ Hội Không Giới Hạn' },
+			{ time: '00:00:12', title: 'Mặt Tối - Cạm Bẫy Trực Tuyến' },
+			{ time: '00:00:18', title: 'Giải Pháp - Trang Bị Năng Lực Số' },
+			{ time: '00:00:24', title: 'Trực Quan Hóa Sản Phẩm Nhóm' },
+			{ time: '00:00:27', title: 'Điều Hướng Chuyển Đổi (CTA)' }
+		]
 	}
 ];

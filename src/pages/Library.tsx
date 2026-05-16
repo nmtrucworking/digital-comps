@@ -19,7 +19,7 @@ export default function Library() {
   const [activeAlbum, setActiveAlbum] = useState<ImageItem | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const heroVideo = videoContent[0];
+  const heroVideo = videoContent[3];
 
   useEffect(() => {
     if (!activeVideo && !activeAlbum) {
@@ -221,7 +221,7 @@ export default function Library() {
         ))}
 
         {/* Render next video thumbnails */}
-        {videoContent.slice(1).map((v) => (
+        {videoContent.slice(4).map((v) => (
           <button
             key={v.id}
             type="button"
